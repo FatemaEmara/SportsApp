@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lexend-VariableFont_wght.ttf">
+            <string>Lexend-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Header" id="U6b-Vx-4bR" customClass="HeaderReusableView" customModule="SportsApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="236" height="32"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="J70-ZY-hg2">
+                    <rect key="frame" x="16" y="6" width="25" height="20"/>
+                    <color key="tintColor" red="0.29019607843137252" green="0.88235294117647056" blue="0.46274509803921571" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="9Zr-Ml-0uW"/>
+                        <constraint firstAttribute="height" constant="20" id="utU-rf-OxW"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9K-sn-6mJ">
+                    <rect key="frame" x="49" y="6" width="189" height="30"/>
+                    <fontDescription key="fontDescription" name="Lexend-SemiBold" family="Lexend" pointSize="24"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
+            <constraints>
+                <constraint firstItem="H9K-sn-6mJ" firstAttribute="leading" secondItem="J70-ZY-hg2" secondAttribute="trailing" constant="8" id="7xR-vx-Xh0"/>
+                <constraint firstItem="J70-ZY-hg2" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" constant="6" id="LPn-vU-5bX"/>
+                <constraint firstItem="J70-ZY-hg2" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" constant="16" id="fhC-Jc-ACh"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="H9K-sn-6mJ" secondAttribute="trailing" constant="-2" id="j8O-KN-ybb"/>
+                <constraint firstAttribute="bottom" secondItem="J70-ZY-hg2" secondAttribute="bottom" constant="6" id="jsh-LK-T0E"/>
+                <constraint firstItem="H9K-sn-6mJ" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="kAz-zB-xkE"/>
+            </constraints>
+            <connections>
+                <outlet property="headerIcon" destination="J70-ZY-hg2" id="wGA-Jb-Y6V"/>
+                <outlet property="headerName" destination="H9K-sn-6mJ" id="QlC-ww-g68"/>
+            </connections>
+            <point key="canvasLocation" x="29.007633587786259" y="-11.267605633802818"/>
+        </collectionReusableView>
+    </objects>
+</document>

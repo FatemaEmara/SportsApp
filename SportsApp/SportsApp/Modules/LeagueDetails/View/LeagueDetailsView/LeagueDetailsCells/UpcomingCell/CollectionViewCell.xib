@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -110,20 +111,14 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEAM1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BcO-1q-8Zg">
-                                <rect key="frame" x="36" y="44" width="42" height="13"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="42" id="MYF-en-N2M"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEAM1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="BcO-1q-8Zg">
+                                <rect key="frame" x="10" y="44" width="92.333333333333329" height="13"/>
                                 <fontDescription key="fontDescription" name="Inter18pt-Bold" family="Inter 18pt" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEAM2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EN5-sj-BeR">
-                                <rect key="frame" x="157" y="44" width="43" height="14"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="43" id="Ix2-rA-fSq"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEAM2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="EN5-sj-BeR">
+                                <rect key="frame" x="131.66666666666666" y="44" width="92.333333333333343" height="14"/>
                                 <fontDescription key="fontDescription" name="Inter18pt-Bold" family="Inter 18pt" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -133,11 +128,12 @@
                         <constraints>
                             <constraint firstAttribute="width" constant="234.00999999999999" id="7Vz-5K-KN5"/>
                             <constraint firstItem="hoI-ZX-U7J" firstAttribute="leading" secondItem="ABt-Oi-o5B" secondAttribute="trailing" constant="34" id="E4U-eb-RKQ"/>
-                            <constraint firstAttribute="trailing" secondItem="EN5-sj-BeR" secondAttribute="trailing" constant="34" id="JOF-np-65n"/>
+                            <constraint firstItem="EN5-sj-BeR" firstAttribute="leading" secondItem="hoI-ZX-U7J" secondAttribute="trailing" constant="8" id="Iyj-al-OCg"/>
+                            <constraint firstAttribute="trailing" secondItem="EN5-sj-BeR" secondAttribute="trailing" constant="10" id="JOF-np-65n"/>
                             <constraint firstItem="hoI-ZX-U7J" firstAttribute="centerX" secondItem="iG9-bG-Djb" secondAttribute="centerX" id="KQ6-Wr-kY6"/>
                             <constraint firstItem="miM-x1-tk6" firstAttribute="leading" secondItem="hoI-ZX-U7J" secondAttribute="trailing" constant="34.333333333333329" id="U44-NR-Ec5"/>
                             <constraint firstAttribute="bottom" secondItem="BcO-1q-8Zg" secondAttribute="bottom" constant="13" id="Y2V-lf-d4w"/>
-                            <constraint firstItem="BcO-1q-8Zg" firstAttribute="leading" secondItem="iG9-bG-Djb" secondAttribute="leading" constant="36" id="bKi-nH-4TP"/>
+                            <constraint firstItem="BcO-1q-8Zg" firstAttribute="leading" secondItem="iG9-bG-Djb" secondAttribute="leading" constant="10" id="bKi-nH-4TP"/>
                             <constraint firstItem="BcO-1q-8Zg" firstAttribute="top" secondItem="ABt-Oi-o5B" secondAttribute="bottom" constant="4" id="c5j-Pb-AEX"/>
                             <constraint firstItem="EN5-sj-BeR" firstAttribute="top" secondItem="miM-x1-tk6" secondAttribute="bottom" constant="4" id="eDe-0r-gJd"/>
                             <constraint firstAttribute="trailing" secondItem="miM-x1-tk6" secondAttribute="trailing" constant="36" id="eXC-eu-mnd"/>
@@ -147,6 +143,7 @@
                             <constraint firstItem="ABt-Oi-o5B" firstAttribute="top" secondItem="iG9-bG-Djb" secondAttribute="top" id="p5q-Zi-Emu"/>
                             <constraint firstItem="miM-x1-tk6" firstAttribute="top" secondItem="ABt-Oi-o5B" secondAttribute="top" id="r2P-MU-Vo1"/>
                             <constraint firstItem="hoI-ZX-U7J" firstAttribute="centerY" secondItem="iG9-bG-Djb" secondAttribute="centerY" id="rih-RS-Eo2"/>
+                            <constraint firstItem="hoI-ZX-U7J" firstAttribute="leading" secondItem="BcO-1q-8Zg" secondAttribute="trailing" constant="8" id="xwr-5n-2Qh"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -168,6 +165,13 @@
                 </userDefinedRuntimeAttribute>
                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
             </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="date" destination="6WW-rE-ssk" id="Vc2-hj-kKK"/>
+                <outlet property="teamLabelTwo" destination="EN5-sj-BeR" id="YsU-61-Yuu"/>
+                <outlet property="teamLogoTwo" destination="miM-x1-tk6" id="BdR-Fj-Vnb"/>
+                <outlet property="teamOneLabel" destination="BcO-1q-8Zg" id="Bko-AI-Hcf"/>
+                <outlet property="teamOneLogo" destination="ABt-Oi-o5B" id="iLh-QL-FqP"/>
+            </connections>
             <point key="canvasLocation" x="105.34351145038167" y="55.633802816901408"/>
         </collectionViewCell>
     </objects>

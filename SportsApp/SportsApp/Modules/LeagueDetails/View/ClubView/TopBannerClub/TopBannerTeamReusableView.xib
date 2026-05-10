@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="272"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stadium" translatesAutoresizingMaskIntoConstraints="NO" id="uqB-KJ-ua4">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="basketballimg" translatesAutoresizingMaskIntoConstraints="NO" id="uqB-KJ-ua4">
                     <rect key="frame" x="131" y="24" width="128" height="128"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="128" id="jpX-q9-GgA"/>
@@ -47,10 +48,14 @@
                 <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="IE1-tM-lqW" secondAttribute="trailing" constant="111" id="viy-7Q-KL8"/>
                 <constraint firstItem="IE1-tM-lqW" firstAttribute="top" secondItem="uqB-KJ-ua4" secondAttribute="bottom" constant="22" id="x7J-Gc-xsr"/>
             </constraints>
+            <connections>
+                <outlet property="clubImagw" destination="uqB-KJ-ua4" id="bJx-zk-kY7"/>
+                <outlet property="clubName" destination="IE1-tM-lqW" id="3KP-tk-55V"/>
+            </connections>
             <point key="canvasLocation" x="-116" y="-11"/>
         </collectionReusableView>
     </objects>
     <resources>
-        <image name="stadium" width="356" height="190"/>
+        <image name="basketballimg" width="165" height="124"/>
     </resources>
 </document>

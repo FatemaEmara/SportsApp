@@ -10,6 +10,7 @@ import UIKit
 class ClubViewController: UIViewController {
     private let customeBannerKind = "topBannerTeam"
     private let headerHeight = 32
+    var team : Team?
 
     @IBOutlet weak var clubCollectionView: UICollectionView!
     
@@ -153,6 +154,7 @@ extension ClubViewController : UICollectionViewDelegate {
                    withReuseIdentifier: Constant.topBannerTeamIdentifer,
                    for: indexPath
                ) as! TopBannerTeamReusableView
+            banner.configure(with: team!)
                return banner
                
            } else {
@@ -164,7 +166,7 @@ extension ClubViewController : UICollectionViewDelegate {
                    ofKind: kind,
                    withReuseIdentifier: Constant.headeridentifer,
                    for: indexPath
-               ) as! HeaderReusableView
+               ) as! LeagueDetailsCustomeHeader
                header.configure(headerName: titles[indexPath.section], icon:icons[indexPath.section] )
                return header
            }
@@ -176,7 +178,11 @@ extension ClubViewController :UICollectionViewDataSource {
         return 2
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        switch section {
+        case 0 : return 1
+        case 1 : return team?.players?.count ?? 0
+        default :return team?.players?.count ?? 0 
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -194,7 +200,8 @@ extension ClubViewController :UICollectionViewDataSource {
             withReuseIdentifier: Constant.coachIdentifer,
             for: indexPath
         ) as! CoachesCollectionViewCell
-     
+        cell.coachImage.sd_setImage(with: URL(string: team!.coaches![0].coachImage ?? ""),placeholderImage: UIImage(named: "stadium"))
+        cell.coacheName.text = team?.coaches![0].coachName ?? "No Name"
         return cell
     }
     func dequeuePlayerCell(indexPath:IndexPath) ->UICollectionViewCell{
@@ -202,7 +209,8 @@ extension ClubViewController :UICollectionViewDataSource {
             withReuseIdentifier: Constant.playerIdentifer,
             for: indexPath
         ) as! PlayerCollectionViewCell
-     
+        cell.playerName.text = team?.players![indexPath.item].playerName ?? "No name"
+        cell.playerNumber.text = team?.players![indexPath.item].playerNumber ?? "No number"
         return cell
         
     }

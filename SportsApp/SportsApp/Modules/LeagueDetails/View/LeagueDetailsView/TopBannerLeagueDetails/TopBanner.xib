@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,6 +24,10 @@
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stadium" translatesAutoresizingMaskIntoConstraints="NO" id="cyb-N6-sGq">
                     <rect key="frame" x="0.0" y="2" width="358" height="190"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="358" id="MbZ-4B-NAB"/>
+                        <constraint firstAttribute="height" constant="190" id="x5a-n4-wBX"/>
+                    </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                             <integer key="value" value="12"/>
@@ -32,6 +37,10 @@
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Gradient" translatesAutoresizingMaskIntoConstraints="NO" id="cNG-So-gsh">
                     <rect key="frame" x="0.0" y="2" width="358" height="190"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="358" id="5f5-rv-ss6"/>
+                        <constraint firstAttribute="height" constant="190" id="OdC-dy-pO8"/>
+                    </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                             <integer key="value" value="12"/>
@@ -42,8 +51,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3zO-xo-CW3" userLabel="TextView">
                     <rect key="frame" x="0.0" y="2" width="358" height="190"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="stadium" translatesAutoresizingMaskIntoConstraints="NO" id="Ate-LG-njP">
-                            <rect key="frame" x="44" y="84" width="64" height="64"/>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stadium" translatesAutoresizingMaskIntoConstraints="NO" id="Ate-LG-njP">
+                            <rect key="frame" x="45" y="70" width="64" height="64"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="64" id="Mzi-lQ-RaT"/>
                                 <constraint firstAttribute="width" constant="64" id="N1s-Y1-YjQ"/>
@@ -55,13 +64,13 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="LEAGUENAME" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8mm-LC-g5a">
-                            <rect key="frame" x="123" y="83" width="203" height="35"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LEAGUENAME" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="20" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8mm-LC-g5a">
+                            <rect key="frame" x="124" y="83" width="202" height="25"/>
                             <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="30"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aLk-iq-nGC">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aLk-iq-nGC">
                             <rect key="frame" x="124" y="124" width="96" height="25"/>
                             <subviews>
                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p5y-T4-Z6I">
@@ -107,16 +116,22 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="aLk-iq-nGC" firstAttribute="top" secondItem="8mm-LC-g5a" secondAttribute="bottom" constant="6" id="9iT-RO-A68"/>
-                        <constraint firstItem="aLk-iq-nGC" firstAttribute="leading" secondItem="Ate-LG-njP" secondAttribute="trailing" constant="23" id="AOP-pa-6MT"/>
-                        <constraint firstAttribute="trailing" secondItem="8mm-LC-g5a" secondAttribute="trailing" constant="24" id="H0o-e0-64X"/>
-                        <constraint firstAttribute="trailing" secondItem="aLk-iq-nGC" secondAttribute="trailing" constant="130" id="bXQ-8P-u0B"/>
-                        <constraint firstItem="8mm-LC-g5a" firstAttribute="leading" secondItem="Ate-LG-njP" secondAttribute="trailing" constant="22" id="eLu-NI-SXh"/>
-                        <constraint firstItem="8mm-LC-g5a" firstAttribute="top" secondItem="3zO-xo-CW3" secondAttribute="top" id="ipe-u5-p9T"/>
+                        <constraint firstItem="aLk-iq-nGC" firstAttribute="top" secondItem="8mm-LC-g5a" secondAttribute="bottom" constant="16" id="9iT-RO-A68"/>
+                        <constraint firstItem="aLk-iq-nGC" firstAttribute="leading" secondItem="Ate-LG-njP" secondAttribute="trailing" constant="15" id="AOP-pa-6MT"/>
+                        <constraint firstAttribute="trailing" secondItem="8mm-LC-g5a" secondAttribute="trailing" constant="32" id="H0o-e0-64X"/>
+                        <constraint firstAttribute="trailing" secondItem="aLk-iq-nGC" secondAttribute="trailing" constant="138" id="bXQ-8P-u0B"/>
+                        <constraint firstItem="8mm-LC-g5a" firstAttribute="leading" secondItem="Ate-LG-njP" secondAttribute="trailing" constant="15" id="eLu-NI-SXh"/>
+                        <constraint firstItem="8mm-LC-g5a" firstAttribute="top" secondItem="3zO-xo-CW3" secondAttribute="top" constant="83" id="ipe-u5-p9T"/>
                         <constraint firstItem="Ate-LG-njP" firstAttribute="top" secondItem="3zO-xo-CW3" secondAttribute="top" constant="70" id="pyq-fG-th1"/>
-                        <constraint firstAttribute="bottom" secondItem="aLk-iq-nGC" secondAttribute="bottom" constant="51" id="q7Y-LU-M8r"/>
+                        <constraint firstAttribute="bottom" secondItem="aLk-iq-nGC" secondAttribute="bottom" constant="41" id="q7Y-LU-M8r"/>
                         <constraint firstItem="Ate-LG-njP" firstAttribute="leading" secondItem="3zO-xo-CW3" secondAttribute="leading" constant="45" id="r37-uE-c9o"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="12"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds+" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
@@ -136,10 +151,14 @@
             </constraints>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                    <integer key="value" value="12"/>
+                    <integer key="value" value="20"/>
                 </userDefinedRuntimeAttribute>
                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds+" value="YES"/>
             </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="leagueLogo" destination="Ate-LG-njP" id="bFb-ug-sDi"/>
+                <outlet property="leagueName" destination="8mm-LC-g5a" id="pFR-m1-Gd4"/>
+            </connections>
             <point key="canvasLocation" x="435.87786259541986" y="-22.535211267605636"/>
         </collectionReusableView>
     </objects>

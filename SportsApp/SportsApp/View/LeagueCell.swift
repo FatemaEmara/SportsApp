@@ -103,9 +103,21 @@ class LeagueCell: UITableViewCell {
     }
     
     // MARK: - Configure
-    func configure(name: String, country: String, imageName: String) {
-        nameLabel.text = name
-        countryLabel.text = country
-        badgeImageView.image = UIImage(named: imageName)
+  
+    func configure(with league: League) {
+        nameLabel.text = league.league_name ?? "Unknown League"
+        countryLabel.text = league.country_name ?? ""
+
+        // Load image from URL
+        badgeImageView.image = UIImage(systemName: "photo") // placeholder
+        if let logoStr = league.league_logo, let url = URL(string: logoStr) {
+            URLSession.shared.dataTask(with: url) { data, _, _ in
+                if let data = data, let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self.badgeImageView.image = image
+                    }
+                }
+            }.resume()
+        }
     }
 }

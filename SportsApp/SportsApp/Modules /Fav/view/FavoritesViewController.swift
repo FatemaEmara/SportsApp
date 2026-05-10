@@ -5,7 +5,6 @@
 //  Created by Fatema Emara on 06/05/2026.
 //
 
-import UIKit
 
 import UIKit
 
@@ -67,7 +66,9 @@ extension FavoritesViewController: UITableViewDataSource {
         ) as! LeagueCell
         
         let league = mockLeagues[indexPath.row]
-        cell.configure(name: league.0, country: league.1, imageName: league.2)
+        cell.nameLabel.text = league.0
+        cell.countryLabel.text = league.1
+        cell.badgeImageView.image = UIImage(named: league.2)
         return cell
     }
 }

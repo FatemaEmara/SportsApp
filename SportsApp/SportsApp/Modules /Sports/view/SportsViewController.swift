@@ -10,23 +10,32 @@ import UIKit
 class SportsViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
+
     let sports = [
-        ("Football",    "footballimg"),
-        ("Basketball",  "basketballimg"),
-        ("Tennis",      "tennisimg"),
-        ("Cricket",     "cricketimg")
+        ("Football",   "footballimg"),
+        ("Basketball", "basketballimg"),
+        ("Tennis",     "tennisimg"),
+        ("Cricket",    "cricketimg")
     ]
+
+    let sportAPINames: [String: String] = [
+        "Football":   "football",
+        "Basketball": "basketball",
+        "Tennis":     "tennis",
+        "Cricket":    "cricket"
+    ]
+
+    var selectedIndex: Int = 0
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 0.05, green: 0.1, blue: 0.16, alpha: 1)
-           collectionView.delegate = self
-           collectionView.dataSource = self
-           collectionView.backgroundColor = .clear
-           
-           setupNavigationBar()
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.backgroundColor = .clear
+        setupNavigationBar()
     }
-    
-    
+
     func setupNavigationBar() {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -34,7 +43,7 @@ class SportsViewController: UIViewController {
         appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        
+
         let logoImageView = UIImageView()
         logoImageView.image = UIImage(named: "userprofile")
         logoImageView.contentMode = .scaleAspectFit
@@ -43,20 +52,19 @@ class SportsViewController: UIViewController {
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         logoImageView.widthAnchor.constraint(equalToConstant: 30).isActive = true
         logoImageView.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        
+
         let titleLabel = UILabel()
         titleLabel.text = "Sports"
         titleLabel.textColor = .white
         titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
-        
+
         let leftStack = UIStackView(arrangedSubviews: [logoImageView, titleLabel])
         leftStack.axis = .horizontal
         leftStack.spacing = 8
         leftStack.alignment = .center
-        
-        let leftButton = UIBarButtonItem(customView: leftStack)
-        navigationItem.leftBarButtonItem = leftButton
-        
+
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftStack)
+
         let starButton = UIBarButtonItem(
             image: UIImage(systemName: "star"),
             style: .plain,
@@ -67,42 +75,28 @@ class SportsViewController: UIViewController {
         navigationItem.rightBarButtonItem = starButton
     }
 
-    @objc func starTapped() {
-        // Star action later
-    }
-    
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         if segue.identifier == "showLeagues" {
-             let vc = segue.destination as! LeaguesViewController
-         }
-     }
-    
-    
+    @objc func starTapped() { }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showLeagues" {
+            let vc = segue.destination as! LeaguesViewController
+            let sportDisplayName = sports[selectedIndex].0
+            vc.selectedSport = sportAPINames[sportDisplayName] ?? "football"
+        }
     }
-    */
-
-    
 }
 
-// MARK: - Delegate (cell tap)
+// MARK: - Delegate
 extension SportsViewController: UICollectionViewDelegate {
-    
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
+        selectedIndex = indexPath.item   
         performSegue(withIdentifier: "showLeagues", sender: nil)
     }
 }
+
 // MARK: - DataSource
 extension SportsViewController: UICollectionViewDataSource {
-
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
         return sports.count
@@ -110,21 +104,16 @@ extension SportsViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
         let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: "SportCell",
-            for: indexPath
-        ) as! SportCell
-
+            withReuseIdentifier: "SportCell", for: indexPath) as! SportCell
         let sport = sports[indexPath.item]
         cell.configure(name: sport.0, imageName: sport.1)
         return cell
     }
 }
 
-// MARK: - Layout (2 columns)
+// MARK: - Layout
 extension SportsViewController: UICollectionViewDelegateFlowLayout {
-
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -133,4 +122,3 @@ extension SportsViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: width, height: width * 1.1)
     }
 }
-

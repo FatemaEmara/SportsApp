@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HeaderReusableView: UICollectionReusableView {
+class LeagueDetailsCustomeHeader: UICollectionReusableView {
     @IBOutlet weak var headerName: UILabel!
     
     @IBOutlet weak var headerIcon: UIImageView!

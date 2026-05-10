@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -41,12 +42,6 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mcf-59-1qO">
                         <rect key="frame" x="124" y="17.666666666666671" width="110" height="83"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Final" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xOx-jN-naZ">
-                                <rect key="frame" x="43" y="6" width="23" height="17"/>
-                                <fontDescription key="fontDescription" name="Inter18pt-Regular" family="Inter 18pt" pointSize="10"/>
-                                <color key="textColor" red="0.77647058823529413" green="0.77647058823529413" blue="0.80392156862745101" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GJX-IN-EvY">
                                 <rect key="frame" x="18.333333333333343" y="23.333333333333329" width="18.333333333333329" height="36"/>
                                 <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="30"/>
@@ -59,9 +54,8 @@
                                 <color key="textColor" red="0.27058823529411763" green="0.27450980392156865" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="OCT 24" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cR3-Mi-x35">
-                                <rect key="frame" x="38" y="63" width="33" height="12"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OCT 24" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cR3-Mi-x35">
+                                <rect key="frame" x="38.666666666666657" y="63" width="33" height="12"/>
                                 <fontDescription key="fontDescription" name="Inter18pt-Regular" family="Inter 18pt" pointSize="9"/>
                                 <color key="textColor" red="0.77647058823529413" green="0.77647058823529413" blue="0.80392156862745101" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -77,12 +71,13 @@
                         <constraints>
                             <constraint firstItem="GJX-IN-EvY" firstAttribute="centerY" secondItem="Mcf-59-1qO" secondAttribute="centerY" id="26S-sW-VU4"/>
                             <constraint firstAttribute="height" constant="83" id="2W1-BV-nOI"/>
+                            <constraint firstItem="cR3-Mi-x35" firstAttribute="top" secondItem="HMx-6w-C80" secondAttribute="bottom" constant="11" id="4Fw-tQ-bKh"/>
                             <constraint firstItem="GV9-K7-55f" firstAttribute="centerX" secondItem="Mcf-59-1qO" secondAttribute="centerX" constant="25" id="7ae-J2-LGY"/>
-                            <constraint firstItem="xOx-jN-naZ" firstAttribute="centerX" secondItem="Mcf-59-1qO" secondAttribute="centerX" id="EMX-8G-sk9"/>
                             <constraint firstAttribute="width" constant="110" id="GGi-hn-XdZ"/>
                             <constraint firstItem="HMx-6w-C80" firstAttribute="centerX" secondItem="Mcf-59-1qO" secondAttribute="centerX" id="Xuu-uf-2d7"/>
+                            <constraint firstAttribute="bottom" secondItem="cR3-Mi-x35" secondAttribute="bottom" constant="8" id="Zl0-Ab-TeS"/>
                             <constraint firstItem="GJX-IN-EvY" firstAttribute="centerX" secondItem="Mcf-59-1qO" secondAttribute="centerX" constant="-27.499999999999993" id="aqW-x8-arH"/>
-                            <constraint firstItem="xOx-jN-naZ" firstAttribute="centerY" secondItem="Mcf-59-1qO" secondAttribute="centerY" constant="-27" id="hcn-Pw-OFK"/>
+                            <constraint firstItem="cR3-Mi-x35" firstAttribute="centerX" secondItem="Mcf-59-1qO" secondAttribute="centerX" id="bP8-iZ-49b"/>
                             <constraint firstItem="HMx-6w-C80" firstAttribute="centerY" secondItem="Mcf-59-1qO" secondAttribute="centerY" id="v23-Oq-gbb"/>
                             <constraint firstItem="GV9-K7-55f" firstAttribute="centerY" secondItem="Mcf-59-1qO" secondAttribute="centerY" id="vBT-BC-QO7"/>
                         </constraints>
@@ -93,17 +88,45 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Final" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xOx-jN-naZ">
+                        <rect key="frame" x="168" y="23" width="23" height="17"/>
+                        <fontDescription key="fontDescription" name="Inter18pt-Regular" family="Inter 18pt" pointSize="10"/>
+                        <color key="textColor" red="0.77647058823529413" green="0.77647058823529413" blue="0.80392156862745101" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="5Gy-mO-tZY" userLabel="firstTeamName">
+                        <rect key="frame" x="10" y="91" width="104" height="21"/>
+                        <fontDescription key="fontDescription" name="Inter18pt-Regular" family="Inter 18pt" pointSize="12"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Dnd-Sl-ky3">
+                        <rect key="frame" x="239" y="91" width="99" height="21"/>
+                        <fontDescription key="fontDescription" name="Inter18pt-Regular" family="Inter 18pt" pointSize="12"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" red="0.062745098039215685" green="0.12549019607843137" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="xOx-jN-naZ" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" constant="-27" id="1TK-tK-0hO"/>
+                <constraint firstItem="Dnd-Sl-ky3" firstAttribute="leading" secondItem="Mcf-59-1qO" secondAttribute="trailing" constant="5" id="2Jo-ox-fdr"/>
+                <constraint firstItem="Dnd-Sl-ky3" firstAttribute="top" secondItem="xcA-lX-JCr" secondAttribute="bottom" constant="4" id="6hG-za-KJ6"/>
+                <constraint firstItem="Dnd-Sl-ky3" firstAttribute="bottom" secondItem="gTV-IL-0wX" secondAttribute="bottom" constant="-6" id="7Zc-3i-SRf"/>
                 <constraint firstAttribute="top" secondItem="fXY-ri-POB" secondAttribute="top" constant="-31" id="FJg-Sq-uXQ"/>
                 <constraint firstItem="Mcf-59-1qO" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="KJt-LY-KgB"/>
+                <constraint firstItem="xOx-jN-naZ" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="O8n-3m-yiQ"/>
+                <constraint firstItem="5Gy-mO-tZY" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="10" id="OaC-kG-lAm"/>
                 <constraint firstItem="Mcf-59-1qO" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="QDm-45-GtR"/>
                 <constraint firstItem="xcA-lX-JCr" firstAttribute="leading" secondItem="Mcf-59-1qO" secondAttribute="trailing" constant="25" id="Ueu-EX-nor"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="Dnd-Sl-ky3" secondAttribute="trailing" constant="20" id="VCs-Kw-yRs"/>
+                <constraint firstItem="5Gy-mO-tZY" firstAttribute="top" secondItem="fXY-ri-POB" secondAttribute="bottom" constant="4" id="WSd-fi-e7W"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="xcA-lX-JCr" secondAttribute="trailing" constant="43" id="cSp-4v-sEv"/>
                 <constraint firstItem="Mcf-59-1qO" firstAttribute="leading" secondItem="fXY-ri-POB" secondAttribute="trailing" constant="34" id="iHQ-Xw-jAw"/>
+                <constraint firstItem="Mcf-59-1qO" firstAttribute="leading" secondItem="5Gy-mO-tZY" secondAttribute="trailing" constant="10" id="iiH-SA-scx"/>
+                <constraint firstItem="5Gy-mO-tZY" firstAttribute="bottom" secondItem="gTV-IL-0wX" secondAttribute="bottom" constant="-6" id="kop-Vv-mB6"/>
                 <constraint firstAttribute="top" secondItem="xcA-lX-JCr" secondAttribute="top" constant="-31" id="oAA-rJ-xHQ"/>
                 <constraint firstItem="fXY-ri-POB" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="34" id="uO9-rq-rXA"/>
             </constraints>
@@ -113,6 +136,15 @@
                 </userDefinedRuntimeAttribute>
                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
             </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="awayHomeLogo" destination="xcA-lX-JCr" id="4Ex-wf-M4r"/>
+                <outlet property="awayTeamResult" destination="GV9-K7-55f" id="6Y9-fg-1BO"/>
+                <outlet property="homeTeamLogo" destination="fXY-ri-POB" id="RKZ-R1-sh1"/>
+                <outlet property="matchDate" destination="cR3-Mi-x35" id="dMi-G8-DP1"/>
+                <outlet property="teamHomeResult" destination="GJX-IN-EvY" id="EHc-46-jDI"/>
+                <outlet property="teamOneLabel" destination="5Gy-mO-tZY" id="2UN-eV-2kS"/>
+                <outlet property="teamTwoLabel" destination="Dnd-Sl-ky3" id="n73-Ch-6f6"/>
+            </connections>
             <point key="canvasLocation" x="30.534351145038165" y="-12.67605633802817"/>
         </collectionViewCell>
     </objects>

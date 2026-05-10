@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7Or-Lr-S5W">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PzZ-Va-xxT">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -220,7 +220,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IhD-6S-TMl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2028.985507246377" y="-609.375"/>
+            <point key="canvasLocation" x="2626" y="-579"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Bjn-SL-yNP">
@@ -279,16 +279,20 @@
             </objects>
             <point key="canvasLocation" x="513.04347826086962" y="63.616071428571423"/>
         </scene>
-        <!--Teams View Controller-->
+        <!--League Details View Controller-->
         <scene sceneID="ngX-PY-259">
             <objects>
-                <viewController id="7Or-Lr-S5W" customClass="TeamsViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7Or-Lr-S5W" customClass="LeagueDetailsViewController" customModule="SportsApp" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HUB-Zs-3gx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" id="mkW-No-Gna">
+                                <rect key="frame" x="0.0" y="43" width="414" height="810"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hTY-PY-hIz">
-                                <rect key="frame" x="0.0" y="42" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="86" width="414" height="44"/>
                                 <color key="backgroundColor" red="0.0078431372550000003" green="0.023529411760000001" blue="0.090196078430000007" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.0078431372550000003" green="0.023529411760000001" blue="0.090196078430000007" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="barTintColor" red="0.0078431372550000003" green="0.023529411760000001" blue="0.090196078430000007" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -308,7 +312,7 @@
                                 </items>
                             </navigationBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="x14-aK-Qg8">
-                                <rect key="frame" x="0.0" y="86" width="414" height="810"/>
+                                <rect key="frame" x="0.0" y="130" width="414" height="766"/>
                                 <color key="backgroundColor" red="0.01176470588" green="0.078431372550000003" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PzM-Qc-dX5">
                                     <size key="itemSize" width="128" height="128"/>
@@ -342,18 +346,20 @@
                             <constraint firstItem="4Z2-CQ-XvO" firstAttribute="trailing" secondItem="hTY-PY-hIz" secondAttribute="trailing" id="toh-Xa-ObH"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Jyz-Tu-QcN"/>
                     <connections>
                         <outlet property="collectionView" destination="x14-aK-Qg8" id="CnV-RA-maI"/>
+                        <outlet property="loadingIndecator" destination="mkW-No-Gna" id="i1W-jJ-l8e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aZZ-BW-hFx" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2499" y="90"/>
+            <point key="canvasLocation" x="3408.6956521739135" y="89.732142857142847"/>
         </scene>
         <!--Club View Controller-->
         <scene sceneID="q33-1Y-iVf">
             <objects>
-                <viewController id="TF1-49-EZ3" customClass="ClubViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ClubViewController" id="TF1-49-EZ3" customClass="ClubViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w55-ed-H56">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -396,14 +402,32 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ihe-ix-X4i" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3409" y="90"/>
+            <point key="canvasLocation" x="4318.840579710145" y="89.732142857142847"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="JUj-SA-MlF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PzZ-Va-xxT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Wzf-jY-61Z">
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7Or-Lr-S5W" kind="relationship" relationship="rootViewController" id="nxO-jW-fo4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PlQ-LV-egX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2498.5507246376815" y="89.732142857142847"/>
         </scene>
     </scenes>
     <resources>
         <image name="basketballimg" width="165" height="124"/>
         <image name="favicon" width="20" height="19"/>
         <image name="sporticon" width="14" height="16"/>
-        <image name="star" catalog="system" width="32" height="32"/>
+        <image name="star" catalog="system" width="128" height="116"/>
         <image name="starimg" width="20" height="19"/>
         <image name="userprofile" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">

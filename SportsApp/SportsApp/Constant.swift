@@ -26,4 +26,8 @@ class Constant {
     static let coachIdentifer = "CoacheCell"
     static let playerIdentifer = "PlayerCell"
     static let topBannerTeamIdentifer = "TopBannerTeam"
+    static let leaguesDetails = "LeagueDetails"
+    static let clubIdentifer = "ClubIdentifer"
+
+
 }

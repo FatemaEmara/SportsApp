@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    
+    // MARK: - Core Data Stack
+       lazy var persistentContainer: NSPersistentContainer = {
+           let container = NSPersistentContainer(name: "SportsApp")
+           container.loadPersistentStores { _, error in
+               if let error = error {
+                   fatalError("CoreData error: \(error)")
+               }
+           }
+           return container
+       }()
+       
+      
+       
+      
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

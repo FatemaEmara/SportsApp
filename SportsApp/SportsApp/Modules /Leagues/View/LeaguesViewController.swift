@@ -108,8 +108,42 @@ extension LeaguesViewController {
     override func tableView(_ tableView: UITableView,
                             didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        // Navigate to LeagueDetails — implement later
+        
+        guard let league = presenter?.getLeague(at: indexPath.row) else { return }
+        
+        // Save to CoreData
+        CoreDataManager.shared.saveLeague(
+            leagueId: league.league_key ?? 0,
+            leagueName: league.league_name ?? "",
+            leagueBadge: league.league_logo ?? ""
+        )
+        
+        // Navigate
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: Constant.leaguesDetails) as! LeagueDetailsViewController
+        vc.leagueID = league.league_key
+        navigationController?.pushViewController(vc, animated: true)
     }
+//    override func tableView(_ tableView: UITableView,
+//                            didSelectRowAt indexPath: IndexPath) {
+//        tableView.deselectRow(at: indexPath, animated: true)
+//
+//
+//
+//        // Save to CoreData
+//           CoreDataManager.shared.saveLeague(
+//               leagueId: league.league_key ?? 0,
+//               leagueName: league.league_name ?? "",
+//               leagueBadge: league.league_logo ?? ""
+//           )
+//
+//
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let vc = storyboard.instantiateViewController(withIdentifier: Constant.leaguesDetails) as! LeagueDetailsViewController
+//        vc.leagueID = presenter!.getLeague(at: indexPath.row).league_key
+//        navigationController?.pushViewController(vc, animated: true)
+//
+//    }
 
 
    

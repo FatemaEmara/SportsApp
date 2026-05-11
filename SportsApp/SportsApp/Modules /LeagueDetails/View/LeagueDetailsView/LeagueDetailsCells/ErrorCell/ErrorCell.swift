@@ -1,13 +1,13 @@
 //
-//  CoachesCollectionViewCell.swift
+//  ErrorCell.swift
 //  SportsApp
 //
-//  Created by Eyad waleed on 06/05/2026.
+//  Created by Eyad waleed on 11/05/2026.
 //
 
 import UIKit
 
-class CoachesCollectionViewCell: UICollectionViewCell {
+class ErrorCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

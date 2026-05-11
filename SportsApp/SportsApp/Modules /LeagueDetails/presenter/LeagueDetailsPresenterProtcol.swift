@@ -8,8 +8,12 @@
 import Foundation
 
 protocol LeagueDetailsPresenterProtocol  {
+
+    func getUpcomingEventCount() -> Int
+    func getLatestEventCount() -> Int
+    func getTeamsCount() -> Int
     func  getView(view :LeagueDetailsViewControllerProtcol)
-    func  fetchData()
+    func  fetchData(leagueId:Int)
     func  loadUpcomingMatchesCellData(indexPath:Int)-> Event?
     func  loadPlayedMatchesCellData(indexPath:Int)-> Event?
     

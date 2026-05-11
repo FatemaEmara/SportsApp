@@ -16,14 +16,19 @@ class Constant {
     static let coachCellNibName = "CoachesCollectionViewCell"
     static let playerCellNibName = "PlayerCollectionViewCell"
     static let topBannerTeamNibName = "TopBannerTeamReusableView"
+    static let errorCellNibName = "ErrorCell"
     // all Identifers names
     static let  upcomingCellIdentifer="UpcomingCell"
-
-   static let  latestResultCellIdentifer="LatestResultCell"
-   static let  teamResultCellIdentifer="TeamCell"
+    static let  latestResultCellIdentifer="LatestResultCell"
+    static let  teamResultCellIdentifer="TeamCell"
     static let topBannerIdentifer="TopBanner"
     static let headeridentifer = "Header"
     static let coachIdentifer = "CoacheCell"
     static let playerIdentifer = "PlayerCell"
     static let topBannerTeamIdentifer = "TopBannerTeam"
+    static let leaguesDetails = "LeagueDetails"
+    static let clubIdentifer = "ClubIdentifer"
+    static let errorCellIdentifier = "ErrorCell"
+    static let leaguesIdentifer = "LeaguesViewController"
+
 }

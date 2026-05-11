@@ -10,16 +10,19 @@ import SDWebImage
 protocol LeagueDetailsViewControllerProtcol : AnyObject{
     func startAnimating()
     func stopAnimating()
+    func reloadView()
+    
 }
 class LeagueDetailsViewController: UIViewController {
     @IBOutlet weak var loadingIndecator: UIActivityIndicatorView!
     private var presenetr : LeagueDetailsPresenterProtocol!
     @IBOutlet weak var collectionView: UICollectionView!
+    var league :League!
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenetr = LeagueDetailsPresenter(apiData: EventServices() )
+        presenetr = LeagueDetailsPresenter(apiData: FixturesDataImp() )
         presenetr.getView(view: self)
-        presenetr .fetchData()
+        presenetr .fetchData(leagueId: Int(league!.league_key ?? 177))
         setupCollectionView()
         setCollectionViewlayout()
     }
@@ -30,7 +33,7 @@ class LeagueDetailsViewController: UIViewController {
    
     }
      func setCollectionViewlayout(){
-         let layout = LeagueDetailsLayoutFactory.createCompositionalLayout()
+         let layout = LeagueDetailsLayoutFactory.createCompositionalLayout( )
          collectionView.setCollectionViewLayout(layout, animated: true)
      }
     func registerToCollectionView(){
@@ -47,6 +50,8 @@ class LeagueDetailsViewController: UIViewController {
         self.collectionView.register(UINib(nibName: Constant.latestResultCellNibName, bundle: nil), forCellWithReuseIdentifier: Constant.latestResultCellIdentifer)
         
         self.collectionView.register(UINib(nibName: Constant.latestResultCellNibName, bundle: nil), forCellWithReuseIdentifier: Constant.latestResultCellIdentifer)
+        
+        self.collectionView.register(UINib(nibName: Constant.errorCellNibName, bundle: nil), forCellWithReuseIdentifier: Constant.errorCellIdentifier)
         
     
         
@@ -75,9 +80,7 @@ extension LeagueDetailsViewController : UICollectionViewDelegate {
                    for: indexPath
                ) as! TopBanner
             
-            if let event = presenetr?.loadUpcomingMatchesCellData(indexPath:0) {
-                banner.configure(leagueName:event.leagueName ?? "", leagueLogo: event.leagueLogo ?? "")
-            }
+            banner.configure(leagueName: league!.league_name ?? "Unknown" , leagueLogo: league!.league_logo ?? "" )
                return banner
                
            } else {
@@ -107,7 +110,7 @@ extension LeagueDetailsViewController : UICollectionViewDelegate {
        
        private func navigateToTeamDetails(team: Team) {
            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-           let vc = storyboard.instantiateViewController(withIdentifier: Constant.clubViewControllerIdenitfer) as! ClubViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: Constant.clubIdentifer) as! ClubViewController
            vc.team = team
            navigationController?.pushViewController(vc, animated: true)
        }
@@ -118,26 +121,50 @@ extension LeagueDetailsViewController : UICollectionViewDataSource {
         return 3
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+
+        switch LeagueDetailsSection(rawValue: section ) {
+        case .upcomingMatches :
+            let length = presenetr.getUpcomingEventCount()
+            print(length)
+            guard length  !=  0 else {
+                return 1
+            }
+            return length
+        case .latestResults :
+            let length = presenetr.getLatestEventCount()
+            guard length  !=  0 else {
+                return 1
+            }
+            return length
+        default :
+            let length = presenetr.getTeamsCount()
+            guard length  !=  0 else {
+                return 1
+            }
+            return length
+        }
+  
+
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         switch LeagueDetailsSection(rawValue: indexPath.section) {
         case .upcomingMatches :
-            return createUpcomingMatchCell(indexPath: indexPath)
+            return presenetr.getUpcomingEventCount() == 0 ? createErrorCell(indexPath: indexPath, message: "There is no upcoming events") : createUpcomingMatchCell(indexPath: indexPath)
+            
         case .teams :
-            return createTeamsCell(indexPath: indexPath)
+            return presenetr.getTeamsCount() == 0 ? createErrorCell(indexPath: indexPath, message: "There is no Teams") : createTeamsCell(indexPath: indexPath)
             
         default :
-            return creatLatestResultCell(index: indexPath)
+            return presenetr.getLatestEventCount() == 0 ? createErrorCell(indexPath: indexPath, message: "There is no played matches") : creatLatestResultCell(index: indexPath)
         }}
-    
+    // creation of item in each cell
     func createUpcomingMatchCell(indexPath:IndexPath) -> UICollectionViewCell{
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: Constant.upcomingCellIdentifer,
             for: indexPath
         ) as! UpcomingCollectionViewCell
-    
         if let event = presenetr?.loadUpcomingMatchesCellData(indexPath: indexPath.item) {
             cell.configure(with: event)
         }
@@ -168,6 +195,16 @@ extension LeagueDetailsViewController : UICollectionViewDataSource {
         return cell
 
         }
+    func createErrorCell(indexPath: IndexPath, message: String) -> UICollectionViewCell {
+
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: Constant.errorCellIdentifier,
+            for: indexPath
+        ) as! ErrorCell
+        cell.config(message: message)
+        
+         return cell
+    }
     
     
     
@@ -183,7 +220,12 @@ extension LeagueDetailsViewController : LeagueDetailsViewControllerProtcol{
         self.loadingIndecator.isHidden = true
         self.loadingIndecator.stopAnimating()
         self.collectionView.isHidden = false
+        print("Hello I'm stop ")
+    }
+ 
+    func reloadView(){
         self.collectionView.reloadData()
+
     }
     
     

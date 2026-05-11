@@ -199,7 +199,7 @@ extension TeamsViewController : UICollectionViewDelegate {
                    ofKind: kind,
                    withReuseIdentifier: Constant.headeridentifer,
                    for: indexPath
-               ) as! HeaderReusableView
+               ) as! LeagueDetailsCustomeHeader
                header.configure(headerName: titles[indexPath.section], icon:icons[indexPath.section] )
                return header
            }

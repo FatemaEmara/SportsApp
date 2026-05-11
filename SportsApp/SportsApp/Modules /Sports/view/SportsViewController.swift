@@ -91,7 +91,11 @@ extension SportsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
         selectedIndex = indexPath.item   
-        performSegue(withIdentifier: "showLeagues", sender: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        APIConfig.endpoint = Sport.allCases[selectedIndex]
+        let vc = storyboard.instantiateViewController(withIdentifier: Constant.leaguesIdentifer) as!  LeaguesViewController
+        vc.selectedSport = Sport.allCases[selectedIndex].rawValue
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

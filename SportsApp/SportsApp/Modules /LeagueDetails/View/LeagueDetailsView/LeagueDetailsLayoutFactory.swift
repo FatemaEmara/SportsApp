@@ -10,21 +10,19 @@ import UIKit
 struct LeagueDetailsLayoutFactory {
    static private let headerHeight  = 32
     static  let customeBannerKind = "BannerKind"
-    static func createCompositionalLayout() -> UICollectionViewCompositionalLayout{
-        let layout = UICollectionViewCompositionalLayout{
-            index , enviroment in
+    static func createCompositionalLayout() -> UICollectionViewCompositionalLayout {
+        let layout = UICollectionViewCompositionalLayout { index, environment in
+            
+          
+            
             switch index {
-            case 0 :
-                return self.drawUpcomingSection()
-            case 1 :
-                return self.drawTeamsSection()
-            default :
-                return self.drawLatestResult()
+            case 0: return drawUpcomingSection()
+            case 1: return drawTeamsSection()
+            default: return drawLatestResult()
             }
         }
         layout.configuration = createGlobalBanner()
         return layout
-        
     }
     
   static   func createGlobalBanner()-> UICollectionViewCompositionalLayoutConfiguration
@@ -46,7 +44,6 @@ struct LeagueDetailsLayoutFactory {
         return config
     }
     
-  
 static    func  drawUpcomingSection() ->NSCollectionLayoutSection{
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1) )
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.6), heightDimension: .absolute(120))

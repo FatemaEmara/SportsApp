@@ -9,9 +9,13 @@ import UIKit
 
 class ErrorCell: UICollectionViewCell {
 
+    @IBOutlet weak var errorMessage: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    func config(message : String ) {
+        errorMessage.text = message
     }
 
 }

@@ -16,7 +16,7 @@ protocol LeaguesViewProtocol: AnyObject {
 class LeaguesViewController: UITableViewController {
 
     var presenter: LeaguesPresenterProtocol?
-    var selectedSport: String = "football"
+    var selectedSport: String!
     let indicator = UIActivityIndicatorView(style: .large)
 
     override func viewDidLoad() {
@@ -108,7 +108,12 @@ extension LeaguesViewController {
     override func tableView(_ tableView: UITableView,
                             didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        // Navigate to LeagueDetails — implement later
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: Constant.leaguesDetails) as! LeagueDetailsViewController
+        vc.league = presenter!.getLeague(at: indexPath.row)
+        navigationController?.pushViewController(vc, animated: true)
+        
     }
 
 

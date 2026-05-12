@@ -108,8 +108,7 @@ class LeagueCell: UITableViewCell {
         nameLabel.text = league.league_name ?? "Unknown League"
         countryLabel.text = league.country_name ?? ""
 
-        // Load image from URL
-        badgeImageView.image = UIImage(systemName: "photo") // placeholder
+        badgeImageView.image = UIImage(systemName: "photo")
         if let logoStr = league.league_logo, let url = URL(string: logoStr) {
             URLSession.shared.dataTask(with: url) { data, _, _ in
                 if let data = data, let image = UIImage(data: data) {

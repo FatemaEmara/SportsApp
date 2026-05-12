@@ -25,6 +25,34 @@ class LeagueDetailsViewController: UIViewController {
         presenetr .fetchData(leagueId: Int(league!.league_key ?? 177))
         setupCollectionView()
         setCollectionViewlayout()
+        setupFavoriteButton()
+    }
+    func setupFavoriteButton() {
+        let isFav = CoreDataManager.shared.isLeagueFavorite(leagueId: league.league_key ?? 0)
+        let starIcon = isFav ? "star.fill" : "star"
+        let starButton = UIBarButtonItem(
+            image: UIImage(systemName: starIcon),
+            style: .plain,
+            target: self,
+            action: #selector(toggleFavorite)
+        )
+        starButton.tintColor = .systemYellow
+        navigationItem.rightBarButtonItem = starButton
+    }
+    @objc func toggleFavorite() {
+        let leagueId = league.league_key ?? 0
+        
+        if CoreDataManager.shared.isLeagueFavorite(leagueId: leagueId) {
+            CoreDataManager.shared.deleteLeague(leagueId: leagueId)
+            navigationItem.rightBarButtonItem?.image = UIImage(systemName: "star")
+        } else {
+            CoreDataManager.shared.saveLeague(
+                leagueId: leagueId,
+                leagueName: league.league_name ?? "",
+                leagueBadge: league.league_logo ?? ""
+            )
+            navigationItem.rightBarButtonItem?.image = UIImage(systemName: "star.fill")
+        }
     }
     func setupCollectionView(){
         collectionView.delegate = self

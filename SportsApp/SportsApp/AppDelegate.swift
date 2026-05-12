@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import CoreData
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -16,6 +16,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         return true
     }
+    lazy var persistentContainer: NSPersistentContainer = {
+            let container = NSPersistentContainer(name: "SportsApp")
+            container.loadPersistentStores { _, error in
+                if let error = error {
+                    fatalError("CoreData error: \(error)")
+                }
+            }
+            return container
+        }()
+    
+    func saveContext() {
+           let context = persistentContainer.viewContext
+           if context.hasChanges {
+               try? context.save()
+           }
+       }
 
     // MARK: UISceneSession Lifecycle
 

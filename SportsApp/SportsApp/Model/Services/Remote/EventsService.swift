@@ -66,31 +66,7 @@ class FixturesDataImp: FixtureData {
     }
     
     
-    private func getTeams(query: ApiQuery, completion: @escaping (([Team]?) -> Void)) {
-        NetworkService.shared.request(query: query) { (response: TeamResponse?) in
-            guard let response = response,
-                  response.success == 1,
-                  let teams = response.result,
-                  !teams.isEmpty else {
-                completion(nil)
-                return
-            }
-            completion(teams)
-        }
-    }
-    
-    private func getFixtures(query: ApiQuery, completion: @escaping (([Event]?) -> Void)) {
-        NetworkService.shared.request(query: query) { (response: FixturesResponse?) in
-            guard let response = response,
-                  response.success == 1,
-                  let events = response.result,
-                  !events.isEmpty else {
-                completion(nil)
-                return
-            }
-            completion(events)
-        }
-    }
+ 
     
     
     

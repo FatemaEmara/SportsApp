@@ -16,19 +16,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(windowScene: windowScene)
-        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        if UserDefaults.standard.bool(forKey: "hasSeenOnboarding") {
-            let tabBar = storyboard.instantiateViewController(withIdentifier: "homeScreen")
-            window?.rootViewController = tabBar
-        } else {
-            let onboarding = storyboard.instantiateViewController(withIdentifier: "OnboardingFirstVC")
-            let navController = UINavigationController(rootViewController: onboarding)
-            navController.setNavigationBarHidden(true, animated: false)
-            window?.rootViewController = navController
-        }
-        
+           let splashVC = storyboard.instantiateViewController(withIdentifier: "SplashView")
+           window?.rootViewController = splashVC
         window?.makeKeyAndVisible()
     }
 //c sceneDidDisconnect(_ scene: UIScene) {

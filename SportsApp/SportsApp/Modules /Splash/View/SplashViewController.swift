@@ -33,17 +33,28 @@ class SplashViewController: UIViewController {
     }
 
     private func goToNextScreenAfterDelay() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let homeVC = storyboard.instantiateViewController(
-                withIdentifier: Constant.homeIdentifer
-            )
-            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-               let window = windowScene.windows.first {
-                let nav = UINavigationController(rootViewController: homeVC)
-                window.rootViewController = nav
-                window.makeKeyAndVisible()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let hasSeenOnboarding = UserDefaults.standard.bool(forKey: "hasSeenOnboarding")
+
+                let nextVC: UIViewController
+
+                if hasSeenOnboarding {
+                    nextVC = storyboard.instantiateViewController(withIdentifier: Constant.homeIdentifer)
+                } else {
+                    let onboardingVC = storyboard.instantiateViewController(withIdentifier: "OnboardingFirstVC")
+                    let nav = UINavigationController(rootViewController: onboardingVC)
+                    nav.setNavigationBarHidden(true, animated: false)
+                    nextVC = nav
+                }
+
+                if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                   let window = windowScene.windows.first {
+                    UIView.transition(with: window, duration: 0.4, options: .transitionCrossDissolve, animations: {
+                        window.rootViewController = nextVC
+                    }, completion: nil)
+                    window.makeKeyAndVisible()
+                }
             }
         }
-    }
 }

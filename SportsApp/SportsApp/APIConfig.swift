@@ -8,16 +8,21 @@
 import Foundation
 
 struct APIConfig {
-    static let apiKey = "d1113cdf7baf6d4cd55315ee017ec6f7fdf04864c8d446f0581ec22186b7a088"
-    static let baseURL = "https://apiv2.allsportsapi.com/" + endpoint.rawValue
-    static var endpoint =  Sport.football
+    static let apiKey = "f067c324326590c4cceb46339a35572e2ce3fbb2389143f3dbbbd88bdbb8eeb7"
+    static var endpoint = Sport.football
+
+       static var baseURL: String {
+           return "https://apiv2.allsportsapi.com/" + endpoint.rawValue
+       }
     
     
 }
 enum Sport: String ,CaseIterable{
     
     case football = "football/"
-    case cricket = "cricket/"
-    case tennis = "tennis/"
     case basketball = "basketball/"
+    case tennis = "tennis/"
+    case cricket = "cricket/"
+    
+   
 }

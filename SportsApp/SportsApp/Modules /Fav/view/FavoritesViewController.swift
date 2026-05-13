@@ -117,6 +117,7 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
             leagueObj.league_name = league.leagueName
             leagueObj.league_logo = league.leagueBadge
             vc.league = leagueObj
+            APIConfig.endpoint
             navigationController?.pushViewController(vc, animated: true)
         }
     }

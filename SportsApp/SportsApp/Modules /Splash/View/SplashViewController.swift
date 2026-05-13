@@ -1,29 +1,49 @@
-//
-//  SplashViewController.swift
-//  SportsApp
-//
-//  Created by Eyad waleed on 12/05/2026.
-//
-
 import UIKit
+import Lottie
 
 class SplashViewController: UIViewController {
 
+    private var animationView: LottieAnimationView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .black
+        setupAnimation()
+        goToNextScreenAfterDelay()
     }
-    
 
-    /*
-    // MARK: - Navigation
+    private func setupAnimation() {
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        animationView = LottieAnimationView(name: "splash")
+        animationView.translatesAutoresizingMaskIntoConstraints = false
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .loop
+        animationView.animationSpeed = 1.0
+
+        view.addSubview(animationView)
+
+        NSLayoutConstraint.activate([
+            animationView.widthAnchor.constraint(equalToConstant:300),
+            animationView.heightAnchor.constraint(equalToConstant: 300),
+            animationView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            animationView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+
+        animationView.play()
     }
-    */
 
+    private func goToNextScreenAfterDelay() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let homeVC = storyboard.instantiateViewController(
+                withIdentifier: Constant.homeIdentifer
+            )
+            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+               let window = windowScene.windows.first {
+                let nav = UINavigationController(rootViewController: homeVC)
+                window.rootViewController = nav
+                window.makeKeyAndVisible()
+            }
+        }
+    }
 }

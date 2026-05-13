@@ -200,7 +200,9 @@ extension ClubViewController :UICollectionViewDataSource {
             withReuseIdentifier: Constant.coachIdentifer,
             for: indexPath
         ) as! CoachesCollectionViewCell
-        cell.coachImage.sd_setImage(with: URL(string: team!.coaches![0].coachImage ?? ""),placeholderImage: UIImage(named: "stadium"))
+        let imageURL = team?.coaches?.first?.coachImage ?? ""
+
+        cell.coachImage.sd_setImage(with: URL(string: imageURL),placeholderImage: UIImage(systemName: "person.fill"))
         cell.coacheName.text = team?.coaches![0].coachName ?? "No Name"
         return cell
     }
@@ -211,6 +213,8 @@ extension ClubViewController :UICollectionViewDataSource {
         ) as! PlayerCollectionViewCell
         cell.playerName.text = team?.players![indexPath.item].playerName ?? "No name"
         cell.playerNumber.text = team?.players![indexPath.item].playerNumber ?? "No number"
+        let imageUrl = team?.players![indexPath.item].playerImage
+        cell.playerImage.sd_setImage(with: URL(string: imageUrl ?? ""),placeholderImage: UIImage(systemName: "person.fill"))
         return cell
         
     }

@@ -2,11 +2,10 @@
 //  FixtureQuery.swift
 //  SportsApp
 //
-//  Created by Eyad waleed on 09/05/2026.
-//
 
 import Foundation
-enum FixtureQuery {
+
+enum ApiQuery {
     
     case upComingMatches(
         leagueId: Int,
@@ -23,12 +22,15 @@ enum FixtureQuery {
     case liveLeagueMatches(
         leagueId: Int
     )
+    
     case teams(
-           leagueId: Int
-       )
+        leagueId: Int
+    )
+    
+    case leagues
 }
 
-extension FixtureQuery {
+extension ApiQuery {
     
     var parameters: [String: String] {
         
@@ -60,12 +62,21 @@ extension FixtureQuery {
                 "met": "Livescore",
                 "leagueId": "\(leagueId)"
             ]
+            
+            
         case .teams(let leagueId):
-                    
-                    return [
-                        "met": "Teams",
-                        "leagueId": "\(leagueId)"
-                    ]
+            
+            return [
+                "met": "Teams",
+                "leagueId": "\(leagueId)"
+            ]
+            
+            
+        case .leagues:
+            
+            return [
+                "met": "Leagues"
+            ]
         }
     }
 }

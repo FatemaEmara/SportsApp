@@ -30,5 +30,6 @@ class Constant {
     static let clubIdentifer = "ClubIdentifer"
     static let errorCellIdentifier = "ErrorCell"
     static let leaguesIdentifer = "LeaguesViewController"
+    static let homeIdentifer = "homeScreen"
 
 }

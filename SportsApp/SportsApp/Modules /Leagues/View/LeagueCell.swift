@@ -12,7 +12,7 @@ class LeagueCell: UITableViewCell {
     // MARK: - UI Elements
     let containerView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(red: 0.1, green: 0.17, blue: 0.25, alpha: 1)
+        view.backgroundColor = UIColor(named: "cellColor")
         view.layer.cornerRadius = 12
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -29,7 +29,7 @@ class LeagueCell: UITableViewCell {
     
     let nameLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .white
+        label.textColor = UIColor(named: "textColour")
         label.font = UIFont.boldSystemFont(ofSize: 18)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

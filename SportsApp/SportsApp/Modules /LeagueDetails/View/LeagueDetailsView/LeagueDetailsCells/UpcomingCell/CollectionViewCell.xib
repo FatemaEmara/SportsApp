@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,7 +32,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Week 12" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VVP-IL-T8x">
                                 <rect key="frame" x="0.0" y="2" width="84" height="20"/>
                                 <fontDescription key="fontDescription" name="Inter18pt-Regular" family="Inter 18pt" pointSize="10"/>
-                                <color key="textColor" red="0.77647058823529413" green="0.77647058823529413" blue="0.80392156862745101" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" name="grey"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7iK-7L-zaI">
@@ -41,11 +42,11 @@
                                         <rect key="frame" x="27.666666666666668" y="3" width="56" height="13"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Inter18pt-Regular" family="Inter 18pt" pointSize="10"/>
-                                        <color key="textColor" red="0.4823529411764706" green="0.81568627450980391" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" name="textColour"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.10196078431372549" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="background"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="PPj-81-RLg"/>
                                     <constraint firstAttribute="width" constant="110" id="hT3-tQ-A8e"/>
@@ -114,13 +115,13 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEAM1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="BcO-1q-8Zg">
                                 <rect key="frame" x="10" y="44" width="92.333333333333329" height="13"/>
                                 <fontDescription key="fontDescription" name="Inter18pt-Bold" family="Inter 18pt" pointSize="12"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" name="textColour"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEAM2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="EN5-sj-BeR">
                                 <rect key="frame" x="131.66666666666666" y="44" width="92.333333333333343" height="14"/>
                                 <fontDescription key="fontDescription" name="Inter18pt-Bold" family="Inter 18pt" pointSize="12"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" name="textColour"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -149,7 +150,7 @@
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <color key="backgroundColor" red="0.062745098039215685" green="0.12549019607843137" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" name="cellColor"/>
             <constraints>
                 <constraint firstItem="iG9-bG-Djb" firstAttribute="bottom" secondItem="gTV-IL-0wX" secondAttribute="bottom" id="5KR-7W-m6O"/>
                 <constraint firstItem="iG9-bG-Djb" firstAttribute="top" secondItem="1sB-5D-IgP" secondAttribute="bottom" constant="8" id="BEC-db-Ssu" userLabel="VsView.top = Appbar.bottom + 8"/>
@@ -177,5 +178,17 @@
     </objects>
     <resources>
         <image name="stadium" width="356" height="190"/>
+        <namedColor name="background">
+            <color red="0.81568627450980391" green="0.89411764705882346" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="cellColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="grey">
+            <color red="0.23921568627450979" green="0.29019607843137252" blue="0.25882352941176467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textColour">
+            <color red="0.011764705882352941" green="0.078431372549019607" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

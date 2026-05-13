@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Inter_18pt-Regular.ttf">
+            <string>Inter18pt-Regular</string>
+        </array>
+        <array key="Lexend-VariableFont_wght.ttf">
+            <string>Lexend-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR" customClass="TopBanner" customModule="SportsApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="358" height="192"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stadium" translatesAutoresizingMaskIntoConstraints="NO" id="cyb-N6-sGq">
+                    <rect key="frame" x="0.0" y="2" width="358" height="190"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="358" id="MbZ-4B-NAB"/>
+                        <constraint firstAttribute="height" constant="190" id="x5a-n4-wBX"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="12"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds+" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Gradient" translatesAutoresizingMaskIntoConstraints="NO" id="cNG-So-gsh">
+                    <rect key="frame" x="0.0" y="2" width="358" height="190"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="358" id="5f5-rv-ss6"/>
+                        <constraint firstAttribute="height" constant="190" id="OdC-dy-pO8"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="12"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3zO-xo-CW3" userLabel="TextView">
+                    <rect key="frame" x="0.0" y="2" width="358" height="190"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stadium" translatesAutoresizingMaskIntoConstraints="NO" id="Ate-LG-njP">
+                            <rect key="frame" x="45" y="70" width="64" height="64"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="64" id="Mzi-lQ-RaT"/>
+                                <constraint firstAttribute="width" constant="64" id="N1s-Y1-YjQ"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="32"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LEAGUENAME" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="20" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8mm-LC-g5a">
+                            <rect key="frame" x="124" y="83" width="202" height="25"/>
+                            <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="30"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aLk-iq-nGC">
+                            <rect key="frame" x="124" y="124" width="96" height="25"/>
+                            <subviews>
+                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p5y-T4-Z6I">
+                                    <rect key="frame" x="10" y="9" width="6" height="6"/>
+                                    <color key="backgroundColor" red="0.2901960784" green="0.88235294119999996" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="6" id="iA3-xL-zkF"/>
+                                        <constraint firstAttribute="width" constant="6" id="nMR-XE-8E2"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="3"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Live Seasson" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BaO-4K-q6a">
+                                    <rect key="frame" x="21" y="6" width="64" height="12"/>
+                                    <fontDescription key="fontDescription" name="Inter18pt-Regular" family="Inter 18pt" pointSize="10"/>
+                                    <color key="textColor" red="0.2901960784" green="0.88235294119999996" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.2901960784" green="0.88235294119999996" blue="0.46274509800000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="D11-bJ-VM6"/>
+                                <constraint firstItem="p5y-T4-Z6I" firstAttribute="top" secondItem="aLk-iq-nGC" secondAttribute="top" constant="9" id="Dcb-fD-lSD"/>
+                                <constraint firstItem="p5y-T4-Z6I" firstAttribute="leading" secondItem="aLk-iq-nGC" secondAttribute="leading" constant="10" id="Fg3-i3-Fpb"/>
+                                <constraint firstItem="BaO-4K-q6a" firstAttribute="leading" secondItem="p5y-T4-Z6I" secondAttribute="trailing" constant="5" id="JEL-q0-dRI"/>
+                                <constraint firstAttribute="bottom" secondItem="p5y-T4-Z6I" secondAttribute="bottom" constant="10" id="o8e-rq-pYl"/>
+                                <constraint firstItem="BaO-4K-q6a" firstAttribute="top" secondItem="aLk-iq-nGC" secondAttribute="top" constant="6" id="pE4-HJ-pBd"/>
+                                <constraint firstAttribute="width" constant="96" id="pa9-Jh-0g4"/>
+                                <constraint firstAttribute="bottom" secondItem="BaO-4K-q6a" secondAttribute="bottom" constant="7" id="pay-WD-rVR"/>
+                                <constraint firstAttribute="trailing" secondItem="BaO-4K-q6a" secondAttribute="trailing" constant="11" id="rdj-ct-bv1"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="12"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="aLk-iq-nGC" firstAttribute="top" secondItem="8mm-LC-g5a" secondAttribute="bottom" constant="16" id="9iT-RO-A68"/>
+                        <constraint firstItem="aLk-iq-nGC" firstAttribute="leading" secondItem="Ate-LG-njP" secondAttribute="trailing" constant="15" id="AOP-pa-6MT"/>
+                        <constraint firstAttribute="trailing" secondItem="8mm-LC-g5a" secondAttribute="trailing" constant="32" id="H0o-e0-64X"/>
+                        <constraint firstAttribute="trailing" secondItem="aLk-iq-nGC" secondAttribute="trailing" constant="138" id="bXQ-8P-u0B"/>
+                        <constraint firstItem="8mm-LC-g5a" firstAttribute="leading" secondItem="Ate-LG-njP" secondAttribute="trailing" constant="15" id="eLu-NI-SXh"/>
+                        <constraint firstItem="8mm-LC-g5a" firstAttribute="top" secondItem="3zO-xo-CW3" secondAttribute="top" constant="83" id="ipe-u5-p9T"/>
+                        <constraint firstItem="Ate-LG-njP" firstAttribute="top" secondItem="3zO-xo-CW3" secondAttribute="top" constant="70" id="pyq-fG-th1"/>
+                        <constraint firstAttribute="bottom" secondItem="aLk-iq-nGC" secondAttribute="bottom" constant="41" id="q7Y-LU-M8r"/>
+                        <constraint firstItem="Ate-LG-njP" firstAttribute="leading" secondItem="3zO-xo-CW3" secondAttribute="leading" constant="45" id="r37-uE-c9o"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="12"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds+" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
+            <constraints>
+                <constraint firstAttribute="top" secondItem="cyb-N6-sGq" secondAttribute="top" constant="-2" id="2LG-JR-kZ4"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="leading" secondItem="cyb-N6-sGq" secondAttribute="leading" id="8vn-pj-rsA"/>
+                <constraint firstItem="3zO-xo-CW3" firstAttribute="top" secondItem="cNG-So-gsh" secondAttribute="top" id="Gfv-oj-J1f"/>
+                <constraint firstItem="cNG-So-gsh" firstAttribute="height" secondItem="cyb-N6-sGq" secondAttribute="height" id="L4B-0I-Y7r"/>
+                <constraint firstItem="cyb-N6-sGq" firstAttribute="trailing" secondItem="cNG-So-gsh" secondAttribute="trailing" id="def-Cu-nfp"/>
+                <constraint firstItem="3zO-xo-CW3" firstAttribute="trailing" secondItem="cNG-So-gsh" secondAttribute="trailing" id="e0x-y6-5Co"/>
+                <constraint firstItem="3zO-xo-CW3" firstAttribute="leading" secondItem="cNG-So-gsh" secondAttribute="leading" id="fAV-6U-XsT"/>
+                <constraint firstItem="cNG-So-gsh" firstAttribute="top" secondItem="cyb-N6-sGq" secondAttribute="top" id="iWA-yc-2gL"/>
+                <constraint firstItem="cyb-N6-sGq" firstAttribute="trailing" secondItem="VXr-Tz-HHm" secondAttribute="trailing" id="juW-VO-XSy"/>
+                <constraint firstItem="cNG-So-gsh" firstAttribute="width" secondItem="cyb-N6-sGq" secondAttribute="width" id="vnE-yX-AdS"/>
+                <constraint firstItem="3zO-xo-CW3" firstAttribute="bottom" secondItem="cNG-So-gsh" secondAttribute="bottom" id="wcM-Ho-4LW"/>
+                <constraint firstItem="cNG-So-gsh" firstAttribute="leading" secondItem="cyb-N6-sGq" secondAttribute="leading" id="yrl-1R-YVJ"/>
+            </constraints>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                    <integer key="value" value="20"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds+" value="YES"/>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="leagueLogo" destination="Ate-LG-njP" id="bFb-ug-sDi"/>
+                <outlet property="leagueName" destination="8mm-LC-g5a" id="pFR-m1-Gd4"/>
+            </connections>
+            <point key="canvasLocation" x="435.87786259541986" y="-22.535211267605636"/>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <image name="Gradient" width="356" height="190"/>
+        <image name="stadium" width="356" height="190"/>
+    </resources>
+</document>

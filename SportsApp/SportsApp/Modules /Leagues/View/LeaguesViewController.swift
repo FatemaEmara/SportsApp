@@ -23,6 +23,8 @@ class LeaguesViewController: UITableViewController {
         super.viewDidLoad()
         setupUI()
         setupPresenter()
+        _ = NetworkReachability.shared
+
     }
 
     private func setupUI() {
@@ -39,16 +41,6 @@ class LeaguesViewController: UITableViewController {
         appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
-
-        let starButton = UIBarButtonItem(image: UIImage(systemName: "star"),
-                                        style: .plain,
-                                        target: self,
-                                        action: #selector(starTapped))
-        starButton.tintColor = .white
-        navigationItem.rightBarButtonItem = starButton
-
-       
-        indicator.color = .white
     }
 
     private func setupPresenter() {
@@ -57,8 +49,6 @@ class LeaguesViewController: UITableViewController {
         presenter?.fetchLeagues(for: selectedSport)
     }
 
-    @objc func starTapped() {
-    }
 }
 
 extension LeaguesViewController: LeaguesViewProtocol {

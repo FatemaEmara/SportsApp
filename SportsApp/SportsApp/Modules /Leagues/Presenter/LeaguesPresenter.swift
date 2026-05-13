@@ -32,7 +32,7 @@ class LeaguesPresenter: LeaguesPresenterProtocol {
                     self?.leagues = result
                     self?.view?.reloadTable()
                 } else {
-                    self?.view?.showError("Failed to load leagues.")
+                    self?.view?.showError("No Internet Connection. Please try again.")
                 }
             }
         }

@@ -7,6 +7,14 @@
 
 import Foundation
 
+protocol FavoritesPresenterProtocol {
+    var favoritesCount: Int { get }
+    func getFavorite(at index: Int) -> FavoriteLeague
+    func loadFavorites()
+    func deleteFavorite(at index: Int)
+    func didSelectLeague(at index: Int)
+}
+
 class FavoritesPresenter: FavoritesPresenterProtocol {
     
     weak var view: FavoritesViewProtocol?
@@ -39,6 +47,7 @@ class FavoritesPresenter: FavoritesPresenterProtocol {
     
     func didSelectLeague(at index: Int) {
         if NetworkReachability.isConnected() {
+            
         } else {
             view?.showNoInternetAlert()
         }

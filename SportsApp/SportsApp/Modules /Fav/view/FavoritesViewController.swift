@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol FavoritesViewProtocol: AnyObject {
+    func reloadData()
+    func showNoInternetAlert()
+}
 class FavoritesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -18,8 +22,22 @@ class FavoritesViewController: UIViewController {
         setupBackground()
         setupNavigationBar()
         setupTableView()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(internetRestored),
+            name: .internetConnected,
+            object: nil
+        )
+      
     }
     
+
+    @objc func internetRestored() {
+        presenter.loadFavorites()
+    }
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         presenter.loadFavorites()
@@ -54,17 +72,71 @@ extension FavoritesViewController: FavoritesViewProtocol {
     
     func reloadData() {
         tableView.reloadData()
+        
+        if presenter.favoritesCount == 0 {
+            setupEmptyState()
+            tableView.separatorStyle = .none
+        } else {
+            tableView.backgroundView = nil
+        }
     }
     
     func showNoInternetAlert() {
+
         let alert = UIAlertController(
-            title: "No Internet",
-            message: "Please check your connection.",
+            title: "No Internet Connection",
+            message: "Please reconnect to continue.",
             preferredStyle: .alert
         )
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+
+        alert.addAction(UIAlertAction(
+            title: "OK",
+            style: .default
+        ))
+
         present(alert, animated: true)
     }
+
+func setupEmptyState() {
+    let emptyView = UIView()
+    emptyView.tag = 999
+    
+    let imageView = UIImageView()
+    imageView.image = UIImage(systemName: "star.slash")
+    imageView.tintColor = UIColor.white.withAlphaComponent(0.3)
+    imageView.contentMode = .scaleAspectFit
+    imageView.translatesAutoresizingMaskIntoConstraints = false
+    
+    let titleLabel = UILabel()
+    titleLabel.text = "No Favorites Yet"
+    titleLabel.textColor = .white
+    titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
+    titleLabel.textAlignment = .center
+    titleLabel.translatesAutoresizingMaskIntoConstraints = false
+    
+    let subtitleLabel = UILabel()
+    subtitleLabel.text = "Leagues you save will appear here"
+    subtitleLabel.textColor = UIColor.white.withAlphaComponent(0.5)
+    subtitleLabel.font = UIFont.systemFont(ofSize: 15)
+    subtitleLabel.textAlignment = .center
+    subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
+    
+    let stack = UIStackView(arrangedSubviews: [imageView, titleLabel, subtitleLabel])
+    stack.axis = .vertical
+    stack.spacing = 12
+    stack.alignment = .center
+    stack.translatesAutoresizingMaskIntoConstraints = false
+    
+    emptyView.addSubview(stack)
+    NSLayoutConstraint.activate([
+        imageView.widthAnchor.constraint(equalToConstant: 70),
+        imageView.heightAnchor.constraint(equalToConstant: 70),
+        stack.centerXAnchor.constraint(equalTo: emptyView.centerXAnchor),
+        stack.centerYAnchor.constraint(equalTo: emptyView.centerYAnchor)
+    ])
+    
+    tableView.backgroundView = emptyView
+}
 }
 
 // MARK: - TableView
@@ -103,24 +175,36 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
+
         tableView.deselectRow(at: indexPath, animated: true)
-        presenter.didSelectLeague(at: indexPath.row)
-        
+
         if NetworkReachability.isConnected() {
+
+            presenter.didSelectLeague(at: indexPath.row)
+
             let league = presenter.getFavorite(at: indexPath.row)
+
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
             let vc = storyboard.instantiateViewController(
                 withIdentifier: Constant.leaguesDetails
             ) as! LeagueDetailsViewController
+
             var leagueObj = League()
+
             leagueObj.league_key = Int(league.leagueId)
             leagueObj.league_name = league.leagueName
             leagueObj.league_logo = league.leagueBadge
+
             vc.league = leagueObj
+
             navigationController?.pushViewController(vc, animated: true)
+
+        } else {
+
+            showNoInternetAlert()
         }
     }
-    
     func tableView(_ tableView: UITableView,
                    commit editingStyle: UITableViewCell.EditingStyle,
                    forRowAt indexPath: IndexPath) {
@@ -144,3 +228,4 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
 }
+

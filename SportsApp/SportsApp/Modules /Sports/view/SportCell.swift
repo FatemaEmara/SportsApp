@@ -9,7 +9,7 @@ import UIKit
 
 class SportCell: UICollectionViewCell {
     @IBOutlet weak var sportImageView: UIImageView!
-      @IBOutlet weak var sportNameLabel: UILabel!
+    @IBOutlet weak var sportNameLabel: UILabel!
 
       func configure(name: String, imageName: String) {
           sportNameLabel.text = name

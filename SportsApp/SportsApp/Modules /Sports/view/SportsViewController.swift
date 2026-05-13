@@ -29,13 +29,14 @@ class SportsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        _ = NetworkReachability.shared
+
         view.backgroundColor = UIColor(red: 0.05, green: 0.1, blue: 0.16, alpha: 1)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
         setupNavigationBar()
     }
-
     func setupNavigationBar() {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -65,39 +66,58 @@ class SportsViewController: UIViewController {
 
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftStack)
 
-        let starButton = UIBarButtonItem(
-            image: UIImage(systemName: "star"),
-            style: .plain,
-            target: self,
-            action: #selector(starTapped)
+       
+    }
+    
+  
+    func showNoInternetAlert() {
+
+        let alert = UIAlertController(
+            title: "No Internet",
+            message: "Please check your connection.",
+            preferredStyle: .alert
         )
-        starButton.tintColor = .white
-        navigationItem.rightBarButtonItem = starButton
+
+        alert.addAction(UIAlertAction(
+            title: "OK",
+            style: .default
+        ))
+
+        present(alert, animated: true)
     }
 
-    @objc func starTapped() { }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showLeagues" {
-            let vc = segue.destination as! LeaguesViewController
-            let sportDisplayName = sports[selectedIndex].0
-            vc.selectedSport = sportAPINames[sportDisplayName] ?? "football"
-        }
-    }
 }
 
 // MARK: - Delegate
 extension SportsViewController: UICollectionViewDelegate {
+   
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
-        selectedIndex = indexPath.item   
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        APIConfig.endpoint = Sport.allCases[selectedIndex]
-        let vc = storyboard.instantiateViewController(withIdentifier: Constant.leaguesIdentifer) as!  LeaguesViewController
-        vc.selectedSport = Sport.allCases[selectedIndex].rawValue
-        navigationController?.pushViewController(vc, animated: true)
+
+        selectedIndex = indexPath.item
+
+        if NetworkReachability.isConnected() {
+
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+            APIConfig.endpoint = Sport.allCases[selectedIndex]
+
+            let vc = storyboard.instantiateViewController(
+                withIdentifier: Constant.leaguesIdentifer
+            ) as! LeaguesViewController
+
+            vc.selectedSport = Sport.allCases[selectedIndex].rawValue
+
+            navigationController?.pushViewController(vc, animated: true)
+
+        } else {
+
+            showNoInternetAlert()
+        }
     }
 }
+
 
 // MARK: - DataSource
 extension SportsViewController: UICollectionViewDataSource {
@@ -116,13 +136,34 @@ extension SportsViewController: UICollectionViewDataSource {
     }
 }
 
+
+
 // MARK: - Layout
 extension SportsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let totalPadding: CGFloat = 16 + 16 + 12
-        let width = (collectionView.frame.width - totalPadding) / 2
-        return CGSize(width: width, height: width * 1.1)
+        let spacing: CGFloat = 16        
+        let padding: CGFloat = 24
+        let width = (collectionView.frame.width - padding * 2 - spacing) / 2
+        return CGSize(width: width, height: width * 1.2)
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 16
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 16
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 16, left: 24, bottom: 16, right: 24)
     }
 }

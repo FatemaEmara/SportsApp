@@ -7,15 +7,15 @@
 
 import Foundation
 
-protocol FavoritesViewProtocol: AnyObject {
-    func reloadData()
-    func showNoInternetAlert()
-}
+//protocol FavoritesViewProtocol: AnyObject {
+//    func reloadData()
+//    func showNoInternetAlert()
+//}
 
-protocol FavoritesPresenterProtocol {
-    var favoritesCount: Int { get }
-    func getFavorite(at index: Int) -> FavoriteLeague
-    func loadFavorites()
-    func deleteFavorite(at index: Int)
-    func didSelectLeague(at index: Int)
-}
+//protocol FavoritesPresenterProtocol {
+//    var favoritesCount: Int { get }
+//    func getFavorite(at index: Int) -> FavoriteLeague
+//    func loadFavorites()
+//    func deleteFavorite(at index: Int)
+//    func didSelectLeague(at index: Int)
+//}

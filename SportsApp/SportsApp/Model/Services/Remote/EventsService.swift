@@ -10,7 +10,7 @@ import Alamofire
 class FixturesDataImp: FixtureData {
     
     
-    func fetchTeamsData(leagueId: Int, completion: @escaping ((Result <[Team] , Error>) -> Void)) {
+    func fetchTeamsData(leagueId: Int, sport: Sport, completion: @escaping ((Result <[Team] , Error>) -> Void)) {
        
         NetworkService.shared.request(query: ApiQuery.teams(leagueId: leagueId)){
             (response : TeamResponse? ) in
@@ -30,7 +30,7 @@ class FixturesDataImp: FixtureData {
     }
     
     func fetchUpcomingMatches(
-        leagueId: Int,
+        leagueId: Int, sport: Sport,
         completion: @escaping (Result<[Event], Error>) -> Void
     ) {
         let date = self.getTodayAndTomorrow()
@@ -47,7 +47,7 @@ class FixturesDataImp: FixtureData {
         }
     }
     
-    func fetchLatestMatches(leagueId: Int, completion: @escaping ((Result<[Event], Error>) -> Void)) {
+    func fetchLatestMatches(leagueId: Int, sport: Sport, completion: @escaping ((Result<[Event], Error>) -> Void)) {
          let date = getSixDaysRange()
         NetworkService.shared.request(query: ApiQuery.playedMatches(leagueId: leagueId, from:date.from, to: date.to) ){
             (response: FixturesResponse?) in

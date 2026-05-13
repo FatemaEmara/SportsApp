@@ -17,11 +17,12 @@ class CoreDataManager {
         return appDelegate.persistentContainer.viewContext
     }
     
-    func saveLeague(leagueId: Int, leagueName: String, leagueBadge: String) {
+    func saveLeague(leagueId: Int, leagueName: String, leagueBadge: String, sportName: String ) {
         let entity = FavoriteLeague(context: context)
         entity.leagueId = Int32(leagueId)
         entity.leagueName = leagueName
         entity.leagueBadge = leagueBadge
+        entity.sportName = sportName
         try? context.save()
     }
     

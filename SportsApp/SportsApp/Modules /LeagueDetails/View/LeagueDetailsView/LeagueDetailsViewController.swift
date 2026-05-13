@@ -18,9 +18,11 @@ class LeagueDetailsViewController: UIViewController {
     private var presenetr : LeagueDetailsPresenterProtocol!
     @IBOutlet weak var collectionView: UICollectionView!
     var league :League!
+    var sport: Sport = APIConfig.endpoint 
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenetr = LeagueDetailsPresenter(apiData: FixturesDataImp() )
+        presenetr = LeagueDetailsPresenter(apiData: FixturesDataImp(), sport: sport)
+//        presenetr = LeagueDetailsPresenter(apiData: FixturesDataImp() )
         presenetr.getView(view: self)
         presenetr .fetchData(leagueId: Int(league!.league_key ?? 177))
         setupCollectionView()
@@ -49,7 +51,10 @@ class LeagueDetailsViewController: UIViewController {
             CoreDataManager.shared.saveLeague(
                 leagueId: leagueId,
                 leagueName: league.league_name ?? "",
-                leagueBadge: league.league_logo ?? ""
+                leagueBadge: league.league_logo ?? "",
+                sportName: sport.rawValue.replacingOccurrences(of: "/", with: "")
+
+//                sportName: APIConfig.endpoint.rawValue.replacingOccurrences(of: "/", with: "")
             )
             navigationItem.rightBarButtonItem?.image = UIImage(systemName: "star.fill")
         }

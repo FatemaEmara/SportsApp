@@ -184,12 +184,21 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
 
             let league = presenter.getFavorite(at: indexPath.row)
 
+            if let sportName = league.sportName,
+                 let sport = Sport(rawValue: sportName + "/") {
+                  APIConfig.endpoint = sport
+              }
+            
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-
             let vc = storyboard.instantiateViewController(
                 withIdentifier: Constant.leaguesDetails
             ) as! LeagueDetailsViewController
 
+            if let sportName = league.sportName,
+                 let sport = Sport(rawValue: sportName + "/") {
+                  vc.sport = sport
+              }
+            print("Navigating with sport: \(vc.sport)")
             var leagueObj = League()
 
             leagueObj.league_key = Int(league.leagueId)

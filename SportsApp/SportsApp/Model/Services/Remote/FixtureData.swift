@@ -7,9 +7,9 @@
 import Foundation
 
 protocol FixtureData {
-    func fetchUpcomingMatches(leagueId: Int, completion: @escaping (Result<[Event], Error>) -> Void)
+    func fetchUpcomingMatches(leagueId: Int, sport: Sport,completion: @escaping (Result<[Event], Error>) -> Void)
 
-    func fetchLatestMatches(leagueId: Int, completion: @escaping (Result<[Event], Error>) -> Void)
-    func fetchTeamsData(leagueId: Int, completion: @escaping (Result<[Team], Error>) -> Void)
+    func fetchLatestMatches(leagueId: Int, sport: Sport,completion: @escaping (Result<[Event], Error>) -> Void)
+    func fetchTeamsData(leagueId: Int, sport: Sport,completion: @escaping (Result<[Team], Error>) -> Void)
 }
 

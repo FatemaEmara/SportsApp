@@ -18,9 +18,10 @@ class LeagueDetailsPresenter: LeagueDetailsPresenterProtocol {
     var teams: [Team]?
     weak var view: LeagueDetailsViewControllerProtcol?
     let apiData: FixtureData
-    
-    init(apiData: FixtureData) {
+    let sport: Sport
+    init(apiData: FixtureData, sport: Sport) {
         self.apiData = apiData
+        self.sport = sport
     }
     
     func getView(view: LeagueDetailsViewControllerProtcol) {
@@ -34,7 +35,7 @@ class LeagueDetailsPresenter: LeagueDetailsPresenterProtocol {
         
         // Fetch Upcoming
         dispatchGroup.enter()
-        apiData.fetchUpcomingMatches(leagueId: leagueId) { [weak self] result in
+        apiData.fetchUpcomingMatches(leagueId: leagueId,sport: sport) { [weak self] result in
             defer { dispatchGroup.leave() }
             guard let self = self else { return }
             switch result {
@@ -47,7 +48,7 @@ class LeagueDetailsPresenter: LeagueDetailsPresenterProtocol {
         }
         
         dispatchGroup.enter()
-        apiData.fetchLatestMatches(leagueId: leagueId) { [weak self] result in
+        apiData.fetchLatestMatches(leagueId: leagueId, sport: sport) { [weak self] result in
             defer { dispatchGroup.leave() }
             guard let self = self else { return }
             switch result {
@@ -67,7 +68,7 @@ class LeagueDetailsPresenter: LeagueDetailsPresenterProtocol {
         
         // Fetch Teams
         dispatchGroup.enter()
-        apiData.fetchTeamsData(leagueId: leagueId) { [weak self] result in
+        apiData.fetchTeamsData(leagueId: leagueId, sport: sport) { [weak self] result in
             defer { dispatchGroup.leave() }
             guard let self = self else { return }
             switch result {

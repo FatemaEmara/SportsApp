@@ -9,8 +9,9 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
-    var window: UIWindow?
 
+    var window: UIWindow?
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
@@ -19,16 +20,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         if UserDefaults.standard.bool(forKey: "hasSeenOnboarding") {
-            let tabBar = storyboard.instantiateViewController(withIdentifier: "MainTabBar")
+            let tabBar = storyboard.instantiateViewController(withIdentifier: "homeScreen")
             window?.rootViewController = tabBar
         } else {
             let onboarding = storyboard.instantiateViewController(withIdentifier: "OnboardingFirstVC")
-            window?.rootViewController = onboarding
+            let navController = UINavigationController(rootViewController: onboarding)
+            navController.setNavigationBarHidden(true, animated: false)
+            window?.rootViewController = navController
         }
         
         window?.makeKeyAndVisible()
     }
-    func sceneDidDisconnect(_ scene: UIScene) {
+//c sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.
         // Release any resources associated with this scene that can be re-created the next time the scene connects.
@@ -57,5 +60,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
 
-}
 

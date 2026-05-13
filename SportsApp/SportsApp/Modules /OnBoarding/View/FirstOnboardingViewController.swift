@@ -12,8 +12,7 @@ class FirstOnboardingViewController: UIViewController {
     @IBAction func nextBtn(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let nextVC = storyboard.instantiateViewController(withIdentifier: "SecOnboardingVC")
-        nextVC.modalPresentationStyle = .fullScreen
-        present(nextVC, animated: true)
+        navigationController?.pushViewController(nextVC, animated: true)
     }
     @IBAction func SkipBtn(_ sender: Any) {
         UserDefaults.standard.set(true, forKey: "hasSeenOnboarding")
@@ -21,15 +20,15 @@ class FirstOnboardingViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.setNavigationBarHidden(true, animated: false)
 
         // Do any additional setup after loading the view.
         
     }
     func navigateToMainApp() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let tabBar = storyboard.instantiateViewController(withIdentifier: "MainTabBar")
-        tabBar.modalPresentationStyle = .fullScreen
-        present(tabBar, animated: true)
+        let nextVC = storyboard.instantiateViewController(withIdentifier: "homeScreen")
+        navigationController?.pushViewController(nextVC, animated: true)
     }
 
     /*

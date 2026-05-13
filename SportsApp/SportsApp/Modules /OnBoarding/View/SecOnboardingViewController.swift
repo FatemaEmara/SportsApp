@@ -10,14 +10,18 @@ import UIKit
 class SecOnboardingViewController: UIViewController {
 
     @IBAction func nextBtn(_ sender: Any) {
-        UserDefaults.standard.set(true, forKey: "hasSeenOnboarding")
+
+        navigateToMainApp()
+       
+    }
+    func navigateToMainApp() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let tabBar = storyboard.instantiateViewController(withIdentifier: "MainTabBar")
-        tabBar.modalPresentationStyle = .fullScreen
-        present(tabBar, animated: true)
+        let nextVC = storyboard.instantiateViewController(withIdentifier: "homeScreen")
+        navigationController?.pushViewController(nextVC, animated: true)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.setNavigationBarHidden(true, animated: false)
 
         // Do any additional setup after loading the view.
     }

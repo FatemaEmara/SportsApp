@@ -13,13 +13,13 @@
 		6165FFAC2FB1B49E0051925F /* Lexend-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6165FFA82FB1B49C0051925F /* Lexend-VariableFont_wght.ttf */; };
 		6165FFAD2FB1B49E0051925F /* Inter_18pt_Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6165FFA92FB1B49D0051925F /* Inter_18pt_Medium.ttf */; };
 		6165FFAE2FB1B49E0051925F /* Inter_18pt-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6165FFAA2FB1B49D0051925F /* Inter_18pt-Regular.ttf */; };
-		616CF51B2FB3A9CF00D4D8F5 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 616CF51A2FB3A9CF00D4D8F5 /* Lottie */; };
 		616CF51F2FB3B13000D4D8F5 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616CF51E2FB3B13000D4D8F5 /* SplashViewController.swift */; };
 		61E863D02FB3DCF200CB94B2 /* splash.json in Resources */ = {isa = PBXBuildFile; fileRef = 61E863CF2FB3DCF200CB94B2 /* splash.json */; };
 		61E863D22FB3EF7C00CB94B2 /* LeageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E863D12FB3EF7C00CB94B2 /* LeageService.swift */; };
 		C829E8E22FAE66420039F783 /* League.swift in Sources */ = {isa = PBXBuildFile; fileRef = C829E8E12FAE66420039F783 /* League.swift */; };
 		C829E8E62FAE67080039F783 /* LeaguesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C829E8E52FAE67080039F783 /* LeaguesPresenter.swift */; };
 		C829E8E92FAE6D780039F783 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C829E8E32FAE66B40039F783 /* NetworkService.swift */; };
+		C83E9A772FB4DA58002CE543 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = C83E9A762FB4DA58002CE543 /* Lottie */; };
 		C8492ABE2FB0CD7300BD1FC5 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C8492ABD2FB0CD7300BD1FC5 /* Alamofire */; };
 		C8492AC52FB0CF9300BD1FC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8492AC32FB0CF9300BD1FC5 /* Main.storyboard */; };
 		C8492AC62FB0CF9300BD1FC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8492AC42FB0CF9300BD1FC5 /* LaunchScreen.storyboard */; };
@@ -47,7 +47,6 @@
 		C8492B0D2FB101AB00BD1FC5 /* FixtureData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8492B082FB101AB00BD1FC5 /* FixtureData.swift */; };
 		C8492B0E2FB101AB00BD1FC5 /* EventsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8492B092FB101AB00BD1FC5 /* EventsService.swift */; };
 		C8492B0F2FB101AB00BD1FC5 /* ApiQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8492B0A2FB101AB00BD1FC5 /* ApiQuery.swift */; };
-		C8492B132FB1026100BD1FC5 /* SportsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8492B122FB1026100BD1FC5 /* SportsError.swift */; };
 		C8492B162FB103B600BD1FC5 /* LeagueDetailsPresenterProtcol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8492B142FB103B600BD1FC5 /* LeagueDetailsPresenterProtcol.swift */; };
 		C8492B172FB103B600BD1FC5 /* LeagueDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8492B152FB103B600BD1FC5 /* LeagueDetailsPresenter.swift */; };
 		C84D70C92FB4CED500557FD8 /* FirstOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84D70C72FB4CED500557FD8 /* FirstOnboardingViewController.swift */; };
@@ -61,7 +60,6 @@
 		C87113472FAB5B2F00B8F957 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87113462FAB5B2F00B8F957 /* FavoritesViewController.swift */; };
 		C877DE202FB2578600F0FC78 /* SportsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C877DE1E2FB2578600F0FC78 /* SportsApp.xcdatamodeld */; };
 		C877DE222FB2580B00F0FC78 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C877DE212FB2580B00F0FC78 /* CoreDataManager.swift */; };
-		C877DE262FB2587C00F0FC78 /* FavoriteProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C877DE252FB2587C00F0FC78 /* FavoriteProtocol.swift */; };
 		C877DE282FB2589900F0FC78 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C877DE272FB2589900F0FC78 /* FavoritesPresenter.swift */; };
 		C888349E2FB0C18D00249BC1 /* LeagueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C888349D2FB0C18C00249BC1 /* LeagueCell.swift */; };
 		C88834A92FB0C64700249BC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C88834A82FB0C64700249BC1 /* Assets.xcassets */; };
@@ -113,7 +111,6 @@
 		C8492B082FB101AB00BD1FC5 /* FixtureData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixtureData.swift; sourceTree = "<group>"; };
 		C8492B092FB101AB00BD1FC5 /* EventsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsService.swift; sourceTree = "<group>"; };
 		C8492B0A2FB101AB00BD1FC5 /* ApiQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiQuery.swift; sourceTree = "<group>"; };
-		C8492B122FB1026100BD1FC5 /* SportsError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SportsError.swift; sourceTree = "<group>"; };
 		C8492B142FB103B600BD1FC5 /* LeagueDetailsPresenterProtcol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeagueDetailsPresenterProtcol.swift; sourceTree = "<group>"; };
 		C8492B152FB103B600BD1FC5 /* LeagueDetailsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeagueDetailsPresenter.swift; sourceTree = "<group>"; };
 		C84D70C72FB4CED500557FD8 /* FirstOnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstOnboardingViewController.swift; sourceTree = "<group>"; };
@@ -126,7 +123,6 @@
 		C87113462FAB5B2F00B8F957 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		C877DE1F2FB2578600F0FC78 /* SportsApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SportsApp.xcdatamodel; sourceTree = "<group>"; };
 		C877DE212FB2580B00F0FC78 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		C877DE252FB2587C00F0FC78 /* FavoriteProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteProtocol.swift; sourceTree = "<group>"; };
 		C877DE272FB2589900F0FC78 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
 		C888349D2FB0C18C00249BC1 /* LeagueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueCell.swift; sourceTree = "<group>"; };
 		C88834A82FB0C64700249BC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -148,7 +144,7 @@
 			files = (
 				C87030272FB1133E005B3C08 /* SDWebImage in Frameworks */,
 				C8492ABE2FB0CD7300BD1FC5 /* Alamofire in Frameworks */,
-				616CF51B2FB3A9CF00D4D8F5 /* Lottie in Frameworks */,
+				C83E9A772FB4DA58002CE543 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,7 +416,6 @@
 		C877DE242FB2585D00F0FC78 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				C877DE252FB2587C00F0FC78 /* FavoriteProtocol.swift */,
 				C877DE272FB2589900F0FC78 /* FavoritesPresenter.swift */,
 			);
 			path = Presenter;
@@ -505,7 +500,6 @@
 			children = (
 				C84D70D02FB4CF7D00557FD8 /* Utils */,
 				C829E8D92FAE64B70039F783 /* Model */,
-				C8492B122FB1026100BD1FC5 /* SportsError.swift */,
 				C829E8DC2FAE65470039F783 /* Modules  */,
 				C8492AC32FB0CF9300BD1FC5 /* Main.storyboard */,
 				C8492AC42FB0CF9300BD1FC5 /* LaunchScreen.storyboard */,
@@ -540,7 +534,7 @@
 			packageProductDependencies = (
 				C8492ABD2FB0CD7300BD1FC5 /* Alamofire */,
 				C87030262FB1133E005B3C08 /* SDWebImage */,
-				616CF51A2FB3A9CF00D4D8F5 /* Lottie */,
+				C83E9A762FB4DA58002CE543 /* Lottie */,
 			);
 			productName = SportsApp;
 			productReference = C8FC074A2FA9042E002C1758 /* SportsApp.app */;
@@ -572,7 +566,7 @@
 			packageReferences = (
 				C8492ABC2FB0CD7300BD1FC5 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				C87030252FB1133E005B3C08 /* XCRemoteSwiftPackageReference "SDWebImage" */,
-				616CF5192FB3A9CF00D4D8F5 /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				C83E9A752FB4DA58002CE543 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = C8FC074B2FA9042E002C1758 /* Products */;
 			projectDirPath = "";
@@ -618,7 +612,6 @@
 			files = (
 				C829E8E92FAE6D780039F783 /* NetworkService.swift in Sources */,
 				C8492AF12FB1013B00BD1FC5 /* ClubViewController.swift in Sources */,
-				C877DE262FB2587C00F0FC78 /* FavoriteProtocol.swift in Sources */,
 				C888349E2FB0C18D00249BC1 /* LeagueCell.swift in Sources */,
 				C8492B172FB103B600BD1FC5 /* LeagueDetailsPresenter.swift in Sources */,
 				C8FC07522FA9042E002C1758 /* ViewController.swift in Sources */,
@@ -649,7 +642,6 @@
 				C8492AFE2FB1013B00BD1FC5 /* UpcomingCollectionViewCell.swift in Sources */,
 				C877DE202FB2578600F0FC78 /* SportsApp.xcdatamodeld in Sources */,
 				C84D70D82FB4CF9200557FD8 /* NetworkReachability.swift in Sources */,
-				C8492B132FB1026100BD1FC5 /* SportsError.swift in Sources */,
 				C8492AF92FB1013B00BD1FC5 /* HeaderReusableView.swift in Sources */,
 				C89E6E722FAA979B00195DDF /* LeaguesViewController.swift in Sources */,
 				C84D70D52FB4CF7D00557FD8 /* SportsError.swift in Sources */,
@@ -846,12 +838,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		616CF5192FB3A9CF00D4D8F5 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+		C83E9A752FB4DA58002CE543 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
 			requirement = {
-				kind = exactVersion;
-				version = 4.3.3;
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.5.0;
 			};
 		};
 		C8492ABC2FB0CD7300BD1FC5 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
@@ -873,9 +865,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		616CF51A2FB3A9CF00D4D8F5 /* Lottie */ = {
+		C83E9A762FB4DA58002CE543 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 616CF5192FB3A9CF00D4D8F5 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			package = C83E9A752FB4DA58002CE543 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
 		};
 		C8492ABD2FB0CD7300BD1FC5 /* Alamofire */ = {

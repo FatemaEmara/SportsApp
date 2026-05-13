@@ -30,52 +30,13 @@ class SportsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationController?.navigationBar.shadowImage =   UIImage()
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
-//        setupNavigationBar()
     }
 
-//    func setupNavigationBar() {
-//        let appearance = UINavigationBarAppearance()
-//        appearance.configureWithOpaqueBackground()
-//        appearance.backgroundColor = UIColor(red: 0.05, green: 0.1, blue: 0.16, alpha: 1)
-//        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-//        navigationController?.navigationBar.standardAppearance = appearance
-//        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-//
-//        let logoImageView = UIImageView()
-//        logoImageView.image = UIImage(named: "userprofile")
-//        logoImageView.contentMode = .scaleAspectFit
-//        logoImageView.clipsToBounds = true
-//        logoImageView.layer.cornerRadius = 15
-//        logoImageView.translatesAutoresizingMaskIntoConstraints = false
-//        logoImageView.widthAnchor.constraint(equalToConstant: 30).isActive = true
-//        logoImageView.heightAnchor.constraint(equalToConstant: 30).isActive = true
-//
-//        let titleLabel = UILabel()
-//        titleLabel.text = "Sports"
-//        titleLabel.textColor = .white
-//        titleLabel.font = UIFont.boldSystemFont(ofSize: 18)
-//
-//        let leftStack = UIStackView(arrangedSubviews: [logoImageView, titleLabel])
-//        leftStack.axis = .horizontal
-//        leftStack.spacing = 8
-//        leftStack.alignment = .center
-//
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftStack)
-//
-//        let starButton = UIBarButtonItem(
-//            image: UIImage(systemName: "star"),
-//            style: .plain,
-//            target: self,
-//            action: #selector(starTapped)
-//        )
-//        starButton.tintColor = .white
-//        navigationItem.rightBarButtonItem = starButton
-//    }
 
-    @objc func starTapped() { }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showLeagues" {
@@ -117,16 +78,7 @@ extension SportsViewController: UICollectionViewDataSource {
     }
 }
 
-// MARK: - Layout
-//extension SportsViewController: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView,
-//                        layout collectionViewLayout: UICollectionViewLayout,
-//                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let totalPadding: CGFloat = 35
-//        let width = (collectionView.frame.width - totalPadding * 3) / 2
-//        return CGSize(width: width, height: width *  1.1 )
-//    }
-//}
+
 extension SportsViewController : UICollectionViewDelegateFlowLayout{
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -138,14 +90,12 @@ extension SportsViewController : UICollectionViewDelegateFlowLayout{
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 3
-        // horizontal spacing
     }
 
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 40
-        // vertical spacingt
     }
 
     func collectionView(_ collectionView: UICollectionView,

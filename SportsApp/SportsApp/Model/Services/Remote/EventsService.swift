@@ -12,7 +12,7 @@ class FixturesDataImp: FixtureData {
     
     func fetchTeamsData(leagueId: Int, completion: @escaping ((Result <[Team] , Error>) -> Void)) {
        
-        request(query: FixtureQuery.teams(leagueId: leagueId)){
+        NetworkService.shared.request(query: ApiQuery.teams(leagueId: leagueId)){
             (response : TeamResponse? ) in
             guard let response = response , response.success == 1 else {
                 completion(.failure(SportsError.apiFailed))
@@ -34,7 +34,7 @@ class FixturesDataImp: FixtureData {
         completion: @escaping (Result<[Event], Error>) -> Void
     ) {
         let date = self.getTodayAndTomorrow()
-        request(query: FixtureQuery.upComingMatches(leagueId: leagueId, from: date.today, to: date.tomorrow)) { (response: FixturesResponse?) in
+        NetworkService.shared.request(query: ApiQuery.upComingMatches(leagueId: leagueId, from: date.today, to: date.tomorrow)) { (response: FixturesResponse?) in
             guard let response = response, response.success == 1 else {
                 completion(.failure(SportsError.apiFailed))
                 return
@@ -49,7 +49,7 @@ class FixturesDataImp: FixtureData {
     
     func fetchLatestMatches(leagueId: Int, completion: @escaping ((Result<[Event], Error>) -> Void)) {
          let date = getSixDaysRange()
-        request(query: FixtureQuery.playedMatches(leagueId: leagueId, from:date.from, to: date.to) ){
+        NetworkService.shared.request(query: ApiQuery.playedMatches(leagueId: leagueId, from:date.from, to: date.to) ){
             (response: FixturesResponse?) in
             guard let response = response , response.success == 1 else {
                 completion(.failure(SportsError.apiFailed))
@@ -66,8 +66,8 @@ class FixturesDataImp: FixtureData {
     }
     
     
-    private func getTeams(query: FixtureQuery, completion: @escaping (([Team]?) -> Void)) {
-        request(query: query) { (response: TeamResponse?) in
+    private func getTeams(query: ApiQuery, completion: @escaping (([Team]?) -> Void)) {
+        NetworkService.shared.request(query: query) { (response: TeamResponse?) in
             guard let response = response,
                   response.success == 1,
                   let teams = response.result,
@@ -79,8 +79,8 @@ class FixturesDataImp: FixtureData {
         }
     }
     
-    private func getFixtures(query: FixtureQuery, completion: @escaping (([Event]?) -> Void)) {
-        request(query: query) { (response: FixturesResponse?) in
+    private func getFixtures(query: ApiQuery, completion: @escaping (([Event]?) -> Void)) {
+        NetworkService.shared.request(query: query) { (response: FixturesResponse?) in
             guard let response = response,
                   response.success == 1,
                   let events = response.result,
@@ -92,30 +92,7 @@ class FixturesDataImp: FixtureData {
         }
     }
     
-    private func request<T: Decodable>(query: FixtureQuery, completion: @escaping ((T?) -> Void)) {
-        var parameters = query.parameters
-        parameters["APIkey"] = APIConfig.apiKey
-        
-        AF.request(
-            APIConfig.baseURL,
-            method: .get,
-            parameters: parameters
-        )
-        .validate()
-        .responseDecodable(of: T.self) { response in
-            switch response.result {
-            case .success(let value):
-                DispatchQueue.main.async {
-                    completion(value)
-                }
-            case .failure(let error):
-                print("Request failed: \(error)")
-                DispatchQueue.main.async {
-                    completion(nil)
-                }
-            }
-        }
-    }
+    
     
     
     private func getTodayAndTomorrow() -> (today: String, tomorrow: String) {

@@ -29,18 +29,19 @@ class LeaguesViewController: UITableViewController {
 
     private func setupUI() {
         title = "Leagues"
-        view.backgroundColor = UIColor(red: 0.05, green: 0.1, blue: 0.16, alpha: 1)
-        tableView.backgroundColor = UIColor(red: 0.05, green: 0.1, blue: 0.16, alpha: 1)
+//        view.backgroundColor = UIColor(red: 0.05, green: 0.1, blue: 0.16, alpha: 1)
+//        tableView.backgroundColor = UIColor(red: 0.05, green: 0.1, blue: 0.16, alpha: 1)
         tableView.separatorStyle = .none
         tableView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 16, right: 0)
         tableView.register(LeagueCell.self, forCellReuseIdentifier: "LeagueCell")
 
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor(red: 0.05, green: 0.1, blue: 0.16, alpha: 1)
+        appearance.backgroundColor = .clear
         appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
+
     }
 
     private func setupPresenter() {

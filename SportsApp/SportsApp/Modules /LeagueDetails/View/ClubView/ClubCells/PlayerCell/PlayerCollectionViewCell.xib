@@ -27,8 +27,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="15C-5Q-Bh4">
                         <rect key="frame" x="0.0" y="0.0" width="160" height="192"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stadium" translatesAutoresizingMaskIntoConstraints="NO" id="w55-nb-1uP">
-                                <rect key="frame" x="0.0" y="0.0" width="160" height="192"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="w55-nb-1uP">
+                                <rect key="frame" x="0.0" y="2" width="160" height="188.66666666666666"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HN4-O5-gSK">
                                 <rect key="frame" x="8" y="8" width="45" height="32"/>
@@ -115,7 +115,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="stadium" width="356" height="190"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

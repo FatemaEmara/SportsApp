@@ -73,7 +73,6 @@ class LeagueDetailsPresenter: LeagueDetailsPresenterProtocol {
             switch result {
             case .success(let teams):
                 self.teams = teams
-
             case .failure(let error):
               
                break

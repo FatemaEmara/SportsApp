@@ -17,6 +17,7 @@ class SecOnboardingViewController: UIViewController {
     func navigateToMainApp() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let nextVC = storyboard.instantiateViewController(withIdentifier: "homeScreen")
+        UserDefaults.standard.set(true, forKey: "hasSeenOnboarding")
         navigationController?.pushViewController(nextVC, animated: true)
     }
     override func viewDidLoad() {

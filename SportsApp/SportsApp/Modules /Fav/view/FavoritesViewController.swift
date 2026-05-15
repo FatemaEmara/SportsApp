@@ -206,6 +206,7 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
             leagueObj.league_logo = league.leagueBadge
 
             vc.league = leagueObj
+            vc.hidesBottomBarWhenPushed = true
 
             navigationController?.pushViewController(vc, animated: true)
 

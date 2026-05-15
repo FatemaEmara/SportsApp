@@ -11,6 +11,7 @@ protocol LeagueDetailsViewControllerProtcol : AnyObject{
     func startAnimating()
     func stopAnimating()
     func reloadView()
+    func setupFavoriteButton()
     
 }
 class LeagueDetailsViewController: UIViewController {
@@ -27,7 +28,6 @@ class LeagueDetailsViewController: UIViewController {
         presenetr .fetchData(leagueId: Int(league!.league_key ?? 177))
         setupCollectionView()
         setCollectionViewlayout()
-        setupFavoriteButton()
     }
     func setupFavoriteButton() {
         let isFav = CoreDataManager.shared.isLeagueFavorite(leagueId: league.league_key ?? 0)
@@ -85,8 +85,6 @@ class LeagueDetailsViewController: UIViewController {
         self.collectionView.register(UINib(nibName: Constant.latestResultCellNibName, bundle: nil), forCellWithReuseIdentifier: Constant.latestResultCellIdentifer)
         
         self.collectionView.register(UINib(nibName: Constant.errorCellNibName, bundle: nil), forCellWithReuseIdentifier: Constant.errorCellIdentifier)
-        
-    
         
     }
     func registerHeaders(){
@@ -260,6 +258,8 @@ extension LeagueDetailsViewController : LeagueDetailsViewControllerProtcol{
         self.collectionView.reloadData()
 
     }
+    
+
     
     
 }

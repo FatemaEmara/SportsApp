@@ -71,6 +71,8 @@ class FixturesDataImp: FixtureData {
     
     
     
+    
+    
     private func getTodayAndTomorrow() -> (today: String, tomorrow: String) {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"

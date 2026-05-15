@@ -57,6 +57,7 @@ extension SportsViewController: UICollectionViewDelegate {
         print(APIConfig.endpoint.rawValue)
         let vc = storyboard.instantiateViewController(withIdentifier: Constant.leaguesIdentifer) as!  LeaguesViewController
         vc.selectedSport = Sport.allCases[selectedIndex].rawValue
+        vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
     }
 }

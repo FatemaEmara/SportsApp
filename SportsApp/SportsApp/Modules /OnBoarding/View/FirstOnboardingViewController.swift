@@ -12,10 +12,12 @@ class FirstOnboardingViewController: UIViewController {
     @IBAction func nextBtn(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let nextVC = storyboard.instantiateViewController(withIdentifier: "SecOnboardingVC")
+        
         navigationController?.pushViewController(nextVC, animated: true)
     }
     @IBAction func SkipBtn(_ sender: Any) {
         UserDefaults.standard.set(true, forKey: "hasSeenOnboarding")
+        
           navigateToMainApp()
     }
     override func viewDidLoad() {

@@ -84,6 +84,7 @@ class LeagueDetailsPresenter: LeagueDetailsPresenterProtocol {
             guard let self = self else { return }
             self.view?.stopAnimating()
             self.view?.reloadView()
+            self.view?.setupFavoriteButton()
 
         }
     }

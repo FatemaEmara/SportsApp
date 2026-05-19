@@ -111,7 +111,7 @@
                 <outlet property="playerName" destination="vUB-b1-jSE" id="JZb-h2-urs"/>
                 <outlet property="playerNumber" destination="0mm-eO-xUL" id="GFC-r1-nji"/>
             </connections>
-            <point key="canvasLocation" x="300.76335877862596" y="12.67605633802817"/>
+            <point key="canvasLocation" x="-369" y="-160"/>
         </collectionViewCell>
     </objects>
     <resources>

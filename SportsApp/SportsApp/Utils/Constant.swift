@@ -17,6 +17,7 @@ class Constant {
     static let playerCellNibName = "PlayerCollectionViewCell"
     static let topBannerTeamNibName = "TopBannerTeamReusableView"
     static let errorCellNibName = "ErrorCell"
+    static let playerNewCellNibName="PlayerViewCell"
     // all Identifers names
     static let  upcomingCellIdentifer="UpcomingCell"
     static let  latestResultCellIdentifer="LatestResultCell"
@@ -31,5 +32,6 @@ class Constant {
     static let errorCellIdentifier = "ErrorCell"
     static let leaguesIdentifer = "LeaguesViewController"
     static let homeIdentifer = "homeScreen"
+    static let playerNewCellIdentifer = "playerNewCell"
 
 }

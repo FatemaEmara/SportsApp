@@ -23,7 +23,6 @@ class LeagueDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenetr = LeagueDetailsPresenter(apiData: FixturesDataImp(), sport: sport)
-//        presenetr = LeagueDetailsPresenter(apiData: FixturesDataImp() )
         presenetr.getView(view: self)
         presenetr .fetchData(leagueId: Int(league!.league_key ?? 177))
         setupCollectionView()
@@ -53,8 +52,6 @@ class LeagueDetailsViewController: UIViewController {
                 leagueName: league.league_name ?? "",
                 leagueBadge: league.league_logo ?? "",
                 sportName: sport.rawValue.replacingOccurrences(of: "/", with: "")
-
-//                sportName: APIConfig.endpoint.rawValue.replacingOccurrences(of: "/", with: "")
             )
             navigationItem.rightBarButtonItem?.image = UIImage(systemName: "star.fill")
         }

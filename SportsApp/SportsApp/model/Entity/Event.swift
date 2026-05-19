@@ -23,18 +23,27 @@ class Event: Codable {
     // Home Team
     let homeTeamKey: Int?
     let homeTeamName: String?
-    let homeTeamLogo: String?
+    var homeTeamLogo: String? {
+        return homeTeamFootballLogo ?? homeTeamBasketballLogo
+    }
+    private let homeTeamFootballLogo : String?
+    private let homeTeamBasketballLogo : String?
     
     // Away Team
     let awayTeamKey: Int?
     let awayTeamName: String?
-    let awayTeamLogo: String?
+    var awayTeamLogo: String? {
+        return awayTeamFootballLogo ?? awayTeamBasketballLogo
+    }
     
+    private let awayTeamFootballLogo: String?
+    private let awayTeamBasketballLogo: String?
     // Logos
     let leagueLogo: String?
     let countryLogo: String?
     
     enum CodingKeys: String, CodingKey {
+        
         
         case eventKey = "event_key"
         case eventDate = "event_date"
@@ -48,13 +57,20 @@ class Event: Codable {
         
         case homeTeamKey = "home_team_key"
         case homeTeamName = "event_home_team"
-        case homeTeamLogo = "home_team_logo"
-        
+        case homeTeamFootballLogo = "home_team_logo"
+        case homeTeamBasketballLogo = "event_home_team_logo"
         case awayTeamKey = "away_team_key"
         case awayTeamName = "event_away_team"
-        case awayTeamLogo = "away_team_logo"
-        
+        case awayTeamFootballLogo = "away_team_logo"
+        case awayTeamBasketballLogo = "event_away_team_logo"
+
         case leagueLogo = "league_logo"
         case countryLogo = "country_logo"
     }
+    func getHomeTeamLogoKey() -> String {
+        return APIConfig.endpoint.rawValue == Sport.basketball.rawValue
+            ? "event_home_team_logo"
+            : "home_team_logo"
+    }
+  
 }
